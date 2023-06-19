@@ -1,18 +1,18 @@
+// requires
 const path = require('path');
 const express = require('express');
-//const cors = require('cors');
-
+const router = require('./router.js');
 const app = express();
 
-const router = require('./router.js');
-
+// port
 const PORT = 3000;
 
+// use
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 app.use(express.static(path.resolve(__dirname, './client')));
 
+// router
 app.use('/api',router);
 
 //catch all
