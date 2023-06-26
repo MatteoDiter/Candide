@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -11,4 +12,4 @@ function App() {
   );
 }
 
-export default App;
+ReactDOM.render(<App />, document.getElementById('root'));

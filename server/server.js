@@ -12,7 +12,7 @@ const PORT = 3000;
 // use
 app.use(express.json()); // parse JSON req body
 app.use(express.urlencoded({ extended: true })); // parse URL-encoded req body
-app.use(express.static(path.resolve(__dirname, './client'))); // static file in client dir
+app.use(express.static(path.join(__dirname, './client'))); // static file in client dir
 app.use('/api',router); // API routes
 
 //catch all
