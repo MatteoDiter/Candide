@@ -1,19 +1,19 @@
-// requires
-const path = require('path');
+// required dependencies
 const express = require('express');
-const router = require('./router.js');
+const path = require('path');
+const router = require('./router/router.js');
+
+// express app
 const app = express();
 
 // port
 const PORT = 3000;
 
 // use
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.resolve(__dirname, './client')));
-
-// router
-app.use('/api',router);
+app.use(express.json()); // parse JSON req body
+app.use(express.urlencoded({ extended: true })); // parse URL-encoded req body
+app.use(express.static(path.resolve(__dirname, './client'))); // static file in client dir
+app.use('/api',router); // API routes
 
 //catch all
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));
@@ -35,4 +35,5 @@ app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}...`);
 });
 
+// export app
 module.exports = app;

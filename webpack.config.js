@@ -13,6 +13,7 @@ module.exports = {
     mode: 'development',
 
     devServer: {
+        contentBase: path.join(__dirname, 'public'), // Serve static files from the 'public' directory
         host: 'localhost',
         port: 8080,
         // enable HMR on the devServer
@@ -23,7 +24,6 @@ module.exports = {
                 secure: false,
               },
           },
-        // fallback to root for other urls
         historyApiFallback: true,
     },
     
@@ -35,6 +35,13 @@ module.exports = {
 
     module: {
         rules: [
+            // TSX
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+              },
+            // JSX
             {
               test: /\.jsx?/,
               exclude: /node_modules/,
@@ -45,19 +52,21 @@ module.exports = {
                 },
               },
             },
+            // SASS
             { 
-                test: /\.(s(a|c)ss)$/,
-                use: ['style-loader','css-loader', 'sass-loader']
+              test: /\.(s(a|c)ss)$/,
+              use: ['style-loader','css-loader', 'sass-loader']
             },
+            // IMAGES
             {
-                test: /\.png|svg|jpg|gif$/,
-                use: ['file-loader'],
-              },
+              test: /\.png|svg|jpg|gif$/,
+              use: ['file-loader'],
+            },
         ]
     },
 
     resolve: {
         // Enable importing JS / JSX files without specifying their extension
-        extensions: ['.js', '.jsx'],
+        extensions: ['.tsx', '.ts', '.js', '.jsx'],
     },
 }
