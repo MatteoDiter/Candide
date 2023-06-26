@@ -12,8 +12,12 @@ const PORT = 3000;
 // use
 app.use(express.json()); // parse JSON req body
 app.use(express.urlencoded({ extended: true })); // parse URL-encoded req body
-app.use(express.static(path.join(__dirname, './client'))); // static file in client dir
-app.use('/api',router); // API routes
+app.use(express.static(path.join(__dirname, './dist'))); // static file in client dir
+//app.use('/api',router); // API routes
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 //catch all
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));
