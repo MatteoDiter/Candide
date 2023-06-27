@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-// uri // wJ03hFouFpJ2XYkC
-const myURI = 'mongodb+srv://matteo:wJ03hFouFpJ2XYkC@cluster0.m4uc462.mongodb.net/?retryWrites=true&w=majority';
-const URI = process.env.MONGO_URI || myURI;
+const URI = process.env.MONGO_URI;
 
 // schema
 const Schema = mongoose.Schema;
