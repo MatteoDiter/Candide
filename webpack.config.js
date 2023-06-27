@@ -56,7 +56,7 @@ module.exports = {
             // SASS
             { 
               test: /\.(s(a|c)ss)$/,
-              use: ['style-loader','css-loader', 'sass-loader']
+              use: ['style-loader', 'css-loader', 'sass-loader']
             },
             // IMAGES
             {
@@ -69,5 +69,10 @@ module.exports = {
     resolve: {
         // Enable importing JS / JSX files without specifying their extension
         extensions: ['.tsx', '.ts', '.js', '.jsx'],
+        fallback: {
+          "path": require.resolve("path-browserify"),
+          "os": require.resolve("os-browserify/browser"),
+          "fs": false // 'fs' can't be polyfilled, but it's unlikely you need it in the browser.
+        }
     },
 }
