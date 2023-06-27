@@ -5,13 +5,13 @@ module.exports = {
 
     entry: './client/index.js',
 
+    mode: 'development',
+
     output: {
       path: path.join(__dirname, 'dist'),
       filename: 'bundle.js',
       publicPath: '/',
-  },
-
-    mode: 'development',
+    },
 
     devServer: {
       static: {
