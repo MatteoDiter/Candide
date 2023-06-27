@@ -4,7 +4,7 @@
   "description": "full stack boiler plate",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/server.js",
+    "start": "webpack-dev-server & nodemon server/server.js",
     "build": "webpack -w"
   },
   "repository": {
