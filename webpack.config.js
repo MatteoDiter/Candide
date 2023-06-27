@@ -20,7 +20,7 @@ module.exports = {
         // enable HMR on the devServer
         hot: true,
         proxy: {
-            '/api/**': {
+            '/**': {
                 target: 'http://localhost:3000/',
                 secure: false,
               },

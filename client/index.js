@@ -1,8 +1,6 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App.jsx";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-window.onload = function () {
-  const root = ReactDOM.createRoot(document.getElementById("root"));
-  root.render( <App />);
-};
+// This renders your App component into the div with id "root"
+ReactDOM.render(<App />, document.getElementById('root'));
