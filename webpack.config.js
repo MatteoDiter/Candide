@@ -14,18 +14,13 @@ module.exports = {
     mode: 'development',
 
     devServer: {
-        contentBase: path.join(__dirname, 'public'), // Serve static files from the 'public' directory
-        host: 'localhost',
-        port: 8080,
-        // enable HMR on the devServer
-        hot: true,
-        proxy: {
-            '/**': {
-                target: 'http://localhost:3000/',
-                secure: false,
-              },
-          },
-        historyApiFallback: true,
+      static: {
+        directory: path.join(__dirname, './dist'),
+      },
+      proxy: {
+        '/api': 'http://localhost:3000',
+        secure: false
+      }
     },
     
     plugins: [
