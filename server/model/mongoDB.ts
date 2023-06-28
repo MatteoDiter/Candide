@@ -11,7 +11,7 @@ const connectionOptions: ConnectOptions = {
 
 (async () => {
   try {
-    await mongoose.connect(URI!, connectionOptions); // Using '!' after URI as we're sure it exists, but it's a good practice to check if it's not undefined before using.
+    await mongoose.connect(URI!, connectionOptions);
     console.log('Connected to Mongo DB successfully!');
   } catch (err) {
     console.log('Error connecting to Mongo DB', err);
