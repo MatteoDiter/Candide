@@ -4,7 +4,7 @@
   "description": "full stack boiler plate",
   "main": "index.tsx",
   "scripts": {
-    "start": "webpack-dev-server & nodemon server/server.js",
+    "start": "webpack-dev-server & nodemon server/server.ts",
     "build": "webpack -w"
   },
   "repository": {
@@ -50,6 +50,7 @@
     "sendfile": "^0.1.0",
     "style-loader": "^3.3.2",
     "ts-loader": "^9.4.4",
+    "ts-node": "^10.9.1",
     "typescript": "^5.1.5",
     "webpack": "^5.77.0",
     "webpack-cli": "^5.0.1",
