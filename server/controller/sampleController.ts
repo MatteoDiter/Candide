@@ -1,3 +1,3 @@
-import { Sample } from '../model/mongoDB';
+import Sample from '../model/mongoDB';
 
-export default Sample;
+export default Sample

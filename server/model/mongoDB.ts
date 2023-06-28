@@ -9,14 +9,13 @@ const connectionOptions: ConnectOptions = {
   dbName: 'BPLT',
 };
 
-(async () => {
-  try {
-    await mongoose.connect(URI!, connectionOptions);
+mongoose.connect(URI!, connectionOptions)
+  .then(() => {
     console.log('Connected to Mongo DB successfully!');
-  } catch (err) {
+  })
+  .catch((err) => {
     console.log('Error connecting to Mongo DB', err);
-  }
-})();
+  });
 
 const sampleSchema = new Schema({
   description: { type: String, required: true },
@@ -24,6 +23,4 @@ const sampleSchema = new Schema({
 
 const Sample = mongoose.model('Sample', sampleSchema);
 
-export {
-  Sample
-};
+export default Sample
