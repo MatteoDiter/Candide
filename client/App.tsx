@@ -3,7 +3,7 @@ import React from 'react';
 const App: React.FC = () => {
   return (
     <>
-      Ciao Mondo!
+      Ciao Mondo! TS-Boilerplate Completed.
     </>
   );
 };
