@@ -2,7 +2,7 @@
   "name": "b-plate",
   "version": "1.0.0",
   "description": "full stack boiler plate",
-  "main": "index.js",
+  "main": "index.tsx",
   "scripts": {
     "start": "webpack-dev-server & nodemon server/server.js",
     "build": "webpack -w"
