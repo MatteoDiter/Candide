@@ -3,7 +3,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 
-    entry: './client/index.js',
+    entry: './client/index.tsx',
 
     mode: 'development',
 
@@ -33,10 +33,20 @@ module.exports = {
         rules: [
             // TSX
             {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/,
-              },
+              test: /\.(ts|tsx)$/,
+              exclude: /node_modules/,
+              use: [
+                 {
+                    loader: 'babel-loader',
+                    options: {
+                      presets: ['@babel/preset-env', '@babel/preset-react'],
+                    },
+                 },
+                 {
+                    loader: 'ts-loader'
+                 }
+              ]
+            },
             // JSX
             {
               test: /\.jsx?/,
