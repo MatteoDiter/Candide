@@ -26,7 +26,7 @@ eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {
   \**************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nvar client_1 = __webpack_require__(/*! react-dom/client */ \"./node_modules/react-dom/client.js\");\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\nvar App_1 = __importDefault(__webpack_require__(/*! ./App */ \"./client/App.tsx\"));\nvar rootElement = document.getElementById('root');\nvar root = (0, client_1.createRoot)(rootElement);\nroot.render(react_1[\"default\"].createElement(App_1[\"default\"], null));\n\n//# sourceURL=webpack://b-plate/./client/index.tsx?");
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nvar client_1 = __webpack_require__(/*! react-dom/client */ \"./node_modules/react-dom/client.js\");\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\nvar App_1 = __importDefault(__webpack_require__(/*! ./App */ \"./client/App.tsx\"));\nvar rootElement = document.getElementById('root');\n// create root react 18\nvar root = (0, client_1.createRoot)(rootElement);\nroot.render(react_1[\"default\"].createElement(App_1[\"default\"], null));\n\n//# sourceURL=webpack://b-plate/./client/index.tsx?");
 
 /***/ }),
 
