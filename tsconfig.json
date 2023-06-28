@@ -1,0 +1,13 @@
+  {"compilerOptions": {
+    //JSX components should be converted into calls to React.createElement.
+    "jsx": "react",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "outDir": "dist"
+},
+  // only compile ts files in this directory
+  "include": ["client/**/*","server/**/*"]
+}
