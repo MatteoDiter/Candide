@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Login: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -10,6 +11,8 @@ const Login: React.FC = () => {
     };
 
     return (
+        <nav>
+            <ul>
         <form onSubmit={handleSubmit}>
             <h2>Login</h2>
             <input
@@ -26,6 +29,11 @@ const Login: React.FC = () => {
             />
             <button type="submit">Login</button>
         </form>
+        <li>
+        <Link to="/signup">Sign Up</Link>
+        </li>
+        </ul>
+        </nav>
     );
 };
 
