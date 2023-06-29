@@ -1,6 +1,6 @@
-import express, { Express, Request, Response, NextFunction } from 'express';
-import path from 'path';
-import router from './router/router';
+import express, { Express, Request, Response, NextFunction } from "express";
+import path from "path";
+import router from "./router/router";
 
 const app: Express = express();
 
@@ -9,20 +9,22 @@ const PORT: number = 3000;
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, './dist')));
+app.use(express.static(path.join(__dirname, "./dist")));
 
 // API routes
-app.use('/', router);
+app.use("/", router);
 
 // Catch all route handler
-app.use((req: Request, res: Response) => res.status(404).send("This is not the page you're looking for..."));
+app.use((req: Request, res: Response) =>
+  res.status(404).send("This is not the page you're looking for...")
+);
 
 // Error handling middleware
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   const defaultErr = {
-    log: 'Express error handler caught unknown middleware error',
+    log: "Express error handler caught unknown middleware error",
     status: 500,
-    message: { err: 'An error occurred' },
+    message: { err: "An error occurred" },
   };
   const errorObj = { ...defaultErr, ...err };
   console.log(errorObj.log);
@@ -35,4 +37,4 @@ app.listen(PORT, () => {
 });
 
 // Export app
-export default app
+export default app;

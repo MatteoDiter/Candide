@@ -1,10 +1,14 @@
-import { Request, Response, NextFunction } from 'express';
-import Sample from '../model/mongoDB';
+import { Request, Response, NextFunction } from "express";
+import Sample from "../model/mongoDB";
 
 const sampleController: any = {};
 
 // POST ITEM // WORKING TESTED ON POSTMAN
-sampleController.addItem = async (req: Request, res: Response, next: NextFunction) => {
+sampleController.addItem = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     // log the body
     console.log(req.body);
@@ -15,13 +19,17 @@ sampleController.addItem = async (req: Request, res: Response, next: NextFunctio
   } catch (err) {
     return next({
       log: `addItem: ERROR: ${err}`,
-      message: { err: 'Error occurred in addItem controller.' },
+      message: { err: "Error occurred in addItem controller." },
     });
   }
 };
 
 // GET ITEMS // WORKING TESTED ON POSTMAN
-sampleController.getItem = async (req: Request, res: Response, next: NextFunction) => {
+sampleController.getItem = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const items = await Sample.find({}).exec();
     // log items
@@ -32,7 +40,7 @@ sampleController.getItem = async (req: Request, res: Response, next: NextFunctio
   } catch (err) {
     return next({
       log: `getItem: ERROR: ${err}`,
-      message: { err: 'Error occurred in getItem controller.' },
+      message: { err: "Error occurred in getItem controller." },
     });
   }
 };
