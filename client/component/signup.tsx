@@ -3,11 +3,10 @@ import React, { useState } from 'react';
 const SignUp: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [username, setUsername] = useState('');
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        console.log(`SignUp with Email: ${email}, Password: ${password}, Username: ${username}`);
+        console.log(`SignUp with Email: ${email}, Password: ${password}`);
     };
 
     return (
