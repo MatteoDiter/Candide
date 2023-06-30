@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { Sample, User } from "../model/mongoDB";
+import bcrypt from "bcrypt";
 
 const authController: any = {};
 
@@ -9,11 +10,15 @@ authController.addUser = async (
   res: Response,
   next: NextFunction
 ) => {
-  console.log(req.body); // <-- Add this line
+  console.log(req.body);
   try {
     const { email, password } = req.body;
 
-    res.locals.user = await User.create({ email, password });
+    // Hash the password
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+    res.locals.user = await User.create({ email, password: hashedPassword });
     return next();
   } catch (err) {
     return next({
