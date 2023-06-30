@@ -3,6 +3,7 @@ import path from "path";
 
 // controllers
 import sampleController from "../controller/sampleController";
+import authController from "../controller/authController"; // signup controller
 
 const router: Router = Router();
 
@@ -28,6 +29,16 @@ router.get(
   sampleController.getItem,
   (req: Request, res: Response) => {
     console.log("getting items");
+    res.status(200).json(res.locals);
+  }
+);
+
+// sign up
+router.post(
+  "/signup",
+  authController.addUser,
+  (req: Request, res: Response) => {
+    console.log("User signed up");
     res.status(200).json(res.locals);
   }
 );

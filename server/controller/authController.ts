@@ -9,12 +9,11 @@ authController.addUser = async (
   res: Response,
   next: NextFunction
 ) => {
+  console.log(req.body); // <-- Add this line
   try {
     const { email, password } = req.body;
 
-    const newUser = await User.create({ email, password });
-
-    res.locals.user = newUser;
+    res.locals.user = await User.create({ email, password });
     return next();
   } catch (err) {
     return next({

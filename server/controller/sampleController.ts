@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import Sample from "../model/mongoDB";
+import { Sample, User } from "../model/mongoDB";
 
 const sampleController: any = {};
 

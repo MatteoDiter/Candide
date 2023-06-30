@@ -1,5 +1,6 @@
 import express, { Express, Request, Response, NextFunction } from "express";
 import path from "path";
+import cors from "cors";
 import router from "./router/router";
 
 const app: Express = express();
@@ -7,6 +8,7 @@ const app: Express = express();
 const PORT: number = 3000;
 
 // Middlewares
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "./dist")));
