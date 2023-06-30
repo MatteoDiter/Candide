@@ -1,10 +1,18 @@
-import React from 'react';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SignUp from "./component/signup";
+import Login from "./component/login";
 
 const App: React.FC = () => {
   return (
-    <>
-      Ciao Mondo!
-    </>
+    <BrowserRouter>
+      <div>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 };
 

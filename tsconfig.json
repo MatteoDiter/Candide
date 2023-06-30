@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-      "jsx": "react",
-      "module": "commonjs",
-      "esModuleInterop": true,
-      "noImplicitAny": false,
-      "preserveConstEnums": true,
-      "sourceMap": true,
-      "outDir": "dist"
+    "jsx": "react",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "outDir": "dist"
   },
   "include": ["client/**/*", "server/**/*"]
 }
