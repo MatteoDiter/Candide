@@ -43,4 +43,14 @@ router.post(
   }
 );
 
+// login
+router.post(
+  "/login",
+  authController.loginUser,
+  (req: Request, res: Response) => {
+    console.log("User logged in");
+    res.sendStatus(200);
+  }
+);
+
 export default router;

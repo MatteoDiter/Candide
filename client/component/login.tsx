@@ -1,13 +1,37 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log(`Login with Email: ${email}, Password: ${password}`);
+
+    try {
+      const response = await fetch("/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+
+      if (response.ok) {
+        navigate("/home"); // Redirect to the home page on successful login
+      } else {
+        console.error("Login failed");
+        window.alert("An error occurred during login."); // Display a generic error message
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      window.alert("An error occurred during login."); // Display a generic error message
+    }
   };
 
   return (
