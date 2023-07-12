@@ -8,7 +8,7 @@ const Login: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(`Login with Email: ${email}, Password: ${password}`);
+    console.log(`Login with Email: ${email}, Password`);
 
     try {
       const response = await fetch("/login", {
@@ -26,11 +26,11 @@ const Login: React.FC = () => {
         navigate("/home"); // Redirect to the home page on successful login
       } else {
         console.error("Login failed");
-        window.alert("An error occurred during login."); // Display a generic error message
+        window.alert("An error occurred during login.");
       }
     } catch (error) {
       console.error("Error:", error);
-      window.alert("An error occurred during login."); // Display a generic error message
+      window.alert("An error occurred during login.");
     }
   };
 

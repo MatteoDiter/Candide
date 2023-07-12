@@ -38,10 +38,8 @@ authController.loginUser = async (
   console.log(req.body);
   try {
     const { email, password } = req.body;
-
     // Retrieve the user from the database based on the email
     const user = await User.findOne({ email });
-
     // If the user doesn't exist or the password doesn't match, return an error
     if (!user || !(await bcrypt.compare(password, user.password))) {
       return next({
@@ -50,8 +48,7 @@ authController.loginUser = async (
         statusCode: 401, // Unauthorized status code
       });
     }
-
-    // Login successful
+    // Else Login successful
     return next();
   } catch (err) {
     return next({

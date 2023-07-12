@@ -8,7 +8,7 @@ const SignUp: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(`SignUp with Email: ${email}, Password: ${password}`);
+    console.log(`SignUp with Email: ${email}, Password`);
 
     try {
       const response = await fetch("/signup", {
