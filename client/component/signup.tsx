@@ -1,31 +1,33 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignUp: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log(`SignUp with Email: ${email}, Password: ${password}`);
 
-    // Posting the data to the server
-    fetch("/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
+    try {
+      const response = await fetch("/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
       });
+
+      const data = await response.json();
+      console.log("Success:", data);
+      navigate("/");
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (

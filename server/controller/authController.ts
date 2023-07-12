@@ -24,6 +24,7 @@ authController.addUser = async (
     return next({
       log: `addUser: ERROR: ${err}`,
       message: { err: "Error occurred in addUser controller." },
+      statusCode: 500,
     });
   }
 };
