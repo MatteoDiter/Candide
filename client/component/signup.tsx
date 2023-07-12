@@ -23,14 +23,14 @@ const SignUp: React.FC = () => {
       });
 
       if (response.ok) {
+        window.alert("Signup Successful");
         navigate("/");
       } else {
-        const data = await response.json();
-        window.alert(data.message); // Display the error message in an alert box
+        window.alert("An error occurred during signup.");
       }
     } catch (error) {
       console.error("Error:", error);
-      window.alert("An error occurred during signup."); // Display a generic error message
+      window.alert("An error occurred during signup.");
     }
   };
 
