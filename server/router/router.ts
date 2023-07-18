@@ -19,7 +19,6 @@ router.post(
   (req: Request, res: Response) => {
     console.log("item added");
     res.status(200).json(res.locals);
-    //res.status(200).send('item added');
   }
 );
 

@@ -10,7 +10,7 @@ authController.addUser = async (
   res: Response,
   next: NextFunction
 ) => {
-  console.log(req.body);
+  //console.log(req.body); -> only if you need to test controller
   try {
     const { email, password } = req.body;
 
@@ -35,7 +35,7 @@ authController.loginUser = async (
   res: Response,
   next: NextFunction
 ) => {
-  console.log(req.body);
+  //console.log(req.body); -> only if you need to test controller
   try {
     const { email, password } = req.body;
     // Retrieve the user from the database based on the email
