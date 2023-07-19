@@ -4,7 +4,15 @@ const Clicker: React.FC = () => {
   const [value, setValue] = useState(100);
 
   const handleClick = () => {
-    setValue((preValue) => preValue - 1);
+    setValue((preValue) => {
+      let newValue = preValue - 1;
+      // game over conditional
+      if (newValue === 0) {
+        alert("Game Over");
+        newValue = 100;
+      }
+      return newValue;
+    });
   };
 
   return (
