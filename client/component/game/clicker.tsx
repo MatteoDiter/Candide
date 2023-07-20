@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Clicker: React.FC = () => {
-  const [value, setValue] = useState(100);
+  const [value, setValue] = useState(10);
 
   const handleClick = () => {
     setValue((preValue) => {
@@ -9,7 +9,7 @@ const Clicker: React.FC = () => {
       // game over conditional
       if (newValue === 0) {
         alert("Game Over");
-        newValue = 100;
+        newValue = 10;
       }
       return newValue;
     });
