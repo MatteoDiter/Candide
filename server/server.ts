@@ -16,6 +16,11 @@ app.use(express.static(path.join(__dirname, "./dist")));
 // API routes
 app.use("/", router);
 
+// Catch all route handler for client-side routing
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../client/index.html")); // Adjusted path for serving index.html
+});
+
 // Catch all route handler
 app.use((req: Request, res: Response) =>
   res.status(404).send("This is not the page you're looking for...")

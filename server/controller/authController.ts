@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 
 const authController: any = {};
 
+// SINGUP CONTROLLER
 // signup user - add to the database
 authController.addUser = async (
   req: Request,
@@ -29,6 +30,7 @@ authController.addUser = async (
   }
 };
 
+// LOGIN CONTROLLER
 // login user - check if inputs match the database
 authController.loginUser = async (
   req: Request,
@@ -48,6 +50,8 @@ authController.loginUser = async (
         statusCode: 401, // Unauthorized status code
       });
     }
+    // Set the user object in res.locals for use in other middleware/routes
+    res.locals.user = user;
     // Else Login successful
     return next();
   } catch (err) {
