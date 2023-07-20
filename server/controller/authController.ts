@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 
 const authController: any = {};
 
+// SINGUP CONTROLLER
 // signup user - add to the database
 authController.addUser = async (
   req: Request,
@@ -29,6 +30,7 @@ authController.addUser = async (
   }
 };
 
+// LOGIN CONTROLLER
 // login user - check if inputs match the database
 authController.loginUser = async (
   req: Request,
