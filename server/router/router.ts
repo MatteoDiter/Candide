@@ -4,6 +4,7 @@ import path from "path";
 // controllers
 import sampleController from "../controller/sampleController";
 import authController from "../controller/authController"; // signup controller
+import cookieController from "../controller/cookieController"; // signup controller
 
 const router: Router = Router();
 
@@ -46,6 +47,7 @@ router.post(
 router.post(
   "/login",
   authController.loginUser,
+  cookieController.setSessionCookie,
   (req: Request, res: Response) => {
     console.log("User logged in");
     res.sendStatus(200);

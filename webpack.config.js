@@ -20,7 +20,7 @@ module.exports = {
       proxy: {
         '/': 'http://localhost:3000',
         secure: false
-      }
+      },
     },
     
     plugins: [

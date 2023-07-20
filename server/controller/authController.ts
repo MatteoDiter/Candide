@@ -50,6 +50,8 @@ authController.loginUser = async (
         statusCode: 401, // Unauthorized status code
       });
     }
+    // Set the user object in res.locals for use in other middleware/routes
+    res.locals.user = user;
     // Else Login successful
     return next();
   } catch (err) {
