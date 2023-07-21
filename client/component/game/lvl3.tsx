@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 
-const Clicker: React.FC = () => {
+const Lvl3: React.FC = () => {
   // set time and clicks
-  const time = 10;
-  const clicks = 10;
+  const time = 5;
+  const clicks = 40;
 
   // set states
-  const [value, setValue] = useState(time); // clicks left to beat the game
-  const [timer, setTimer] = useState(clicks); // time left to beat the game
+  const [value, setValue] = useState(clicks); // clicks left to beat the game
+  const [timer, setTimer] = useState(time); // time left to beat the game
 
   // setting reset timer
   const resetTimer = () => {
-    setTimer(time);
+    setTimer(time + 1);
   };
   // timer logic
   useEffect(() => {
@@ -20,33 +20,33 @@ const Clicker: React.FC = () => {
     }, 1000);
 
     return () => clearInterval(timeInterval);
-  }, [value]);
+  }, []);
 
   // game over logic by time
   useEffect(() => {
     if (timer === 0) {
       alert("Time's Up! - Game Over");
-      setValue(10);
+      setValue(clicks);
       resetTimer();
     }
-  }, [timer]);
+  }, [timer, clicks]);
 
   // game win logic by clicks
+  useEffect(() => {
+    if (value === 0) {
+      alert("You Win");
+      resetTimer();
+    }
+  }, [value]);
+
+  // handle click logic
   const handleClick = () => {
-    setValue((preValue) => {
-      let newValue = preValue - 1;
-      // winning game conditional
-      if (newValue === 0) {
-        alert("You Win");
-        newValue = clicks;
-        resetTimer();
-      }
-      return newValue;
-    });
+    setValue((preValue) => preValue - 1);
   };
 
   return (
     <div>
+      <h1>Level 3!</h1>
       <p>Time remaining: {timer} seconds</p>
       <button onClick={handleClick}>clicker</button>
       <p>{value}</p>
@@ -54,4 +54,4 @@ const Clicker: React.FC = () => {
   );
 };
 
-export default Clicker;
+export default Lvl3;
