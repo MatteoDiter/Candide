@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React from "react";
 import Lvl1 from "./game/lvl1";
 
 const Home: React.FC = () => {
