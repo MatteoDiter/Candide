@@ -14,7 +14,7 @@ const Lvl1: React.FC = () => {
 
   // setting reset timer
   const resetTimer = () => {
-    setTimer(time + 1);
+    setTimer(time);
   };
   // timer logic
   useEffect(() => {
