@@ -1,0 +1,3 @@
+fix login on level 2 and 3
+add graphics // 3 different pic for each opponent
+add story
