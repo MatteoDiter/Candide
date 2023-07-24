@@ -9,6 +9,7 @@ const Lvl1: React.FC = () => {
   // set states
   const [value, setValue] = useState(clicks); // clicks left to beat the game
   const [timer, setTimer] = useState(time); // time left to beat the game
+  const [isGameStarted, setIsGameStarted] = useState(false); // track when the game has started
   const navigate = useNavigate(); // setup navigation to next level
 
   // setting reset timer
@@ -17,41 +18,54 @@ const Lvl1: React.FC = () => {
   };
   // timer logic
   useEffect(() => {
-    const timeInterval = setInterval(() => {
-      setTimer((prevTimer) => prevTimer - 1);
-    }, 1000);
+    if (isGameStarted) {
+      const timeInterval = setInterval(() => {
+        setTimer((prevTimer) => prevTimer - 1);
+      }, 1000);
 
-    return () => clearInterval(timeInterval);
-  }, []);
+      return () => clearInterval(timeInterval);
+    }
+  }, [isGameStarted]);
 
   // game over logic by time
   useEffect(() => {
-    if (timer === 0) {
+    if (isGameStarted && timer === 0) {
       alert("Time's Up! - Game Over");
       setValue(clicks);
       resetTimer();
+      setIsGameStarted(false); // Reset the game state
     }
-  }, [timer, clicks]);
+  }, [isGameStarted, timer, clicks]);
 
   // game win logic by clicks
   useEffect(() => {
-    if (value === 0) {
+    if (isGameStarted && value === 0) {
       alert("You Win");
       resetTimer();
+      setIsGameStarted(false); // Reset the game state
       // set a delay before navigate or will cause re-rendering issue // cant render at the same time
       setTimeout(() => {
         navigate("/lvl2");
       }, 100);
     }
-  }, [value, navigate]);
+  }, [isGameStarted, value, navigate]);
+
+  // handle game start
+  const handleStartClick = () => {
+    setIsGameStarted(true);
+  };
 
   // handle click logic
   const handleClick = () => {
-    setValue((preValue) => preValue - 1);
+    if (isGameStarted) {
+      setValue((prevValue) => prevValue - 1);
+    }
   };
 
   return (
     <div>
+      <h1>Level 1!</h1>
+      {!isGameStarted && <button onClick={handleStartClick}>Start</button>}
       <p>Time remaining: {timer} seconds</p>
       <button onClick={handleClick}>clicker</button>
       <p>{value}</p>
