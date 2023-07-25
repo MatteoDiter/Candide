@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 const Lvl2: React.FC = () => {
   // set time and clicks
-  const time = 5;
-  const clicks = 20;
+  const time = 10;
+  const clicks = 50;
 
   // set states
   const [value, setValue] = useState(clicks); // clicks left to beat the game

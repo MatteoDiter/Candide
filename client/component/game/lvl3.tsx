@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 
 const Lvl3: React.FC = () => {
   // set time and clicks
-  const time = 5;
-  const clicks = 40;
+  const time = 10;
+  const clicks = 80;
 
   // set states
   const [value, setValue] = useState(clicks); // clicks left to beat the game
