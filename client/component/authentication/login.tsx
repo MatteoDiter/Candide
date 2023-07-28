@@ -23,7 +23,7 @@ const Login: React.FC = () => {
       });
 
       if (response.ok) {
-        navigate("/lvl1"); // Redirect to the home page on successful login
+        navigate("/home"); // Redirect to the home page on successful login
       } else {
         console.error("Login failed");
         window.alert("An error occurred during login.");
