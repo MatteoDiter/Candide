@@ -1,3 +1,6 @@
-fix login on level 2 and 3
-add graphics // 3 different pic for each opponent
-add story
+Intro story
+Dear Mr. Voltaire,
+Nowadays no one has the time to read a 38000 word long novel.
+Please re-draft in 160 words ... and make sure not lose your readers attention.
+Thanks,
+Cramer's Publishing
