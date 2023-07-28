@@ -10,7 +10,54 @@ const Lvl1: React.FC = () => {
   const [value, setValue] = useState(clicks); // clicks left to beat the game
   const [timer, setTimer] = useState(time); // time left to beat the game
   const [isGameStarted, setIsGameStarted] = useState(false); // track when the game has started
+  const [words, setWords] = useState<string[]>([]); // array of words
+  const [displayedSentence, setDisplayedSentence] = useState(""); // displayed sentence
   const navigate = useNavigate(); // setup navigation to next level
+
+  // Array of words to be displayed on each click
+  useEffect(() => {
+    const wordArray: string[] = [
+      "Candide",
+      "follows",
+      "Candide's",
+      "'misadventures'",
+      "'challenging'",
+      "'his'",
+      "'optimistic'",
+      "'beliefs.'",
+      "'The'",
+      "'satirical'",
+      "'novella'",
+      "'criticizes'",
+      "'society's'",
+      "'absurdities'",
+      "'and'",
+      "'advocates'",
+      "'for'",
+      "'rationality'",
+      "'and'",
+      "'you'",
+      "'know'",
+      "'its'",
+      "'true'",
+      "'one'",
+      "'more'",
+      "'and'",
+      "'two'",
+      "'more'",
+      "'ciao'",
+    ];
+    setWords(wordArray);
+  }, []);
+
+  // Display sentence effect
+  useEffect(() => {
+    if (isGameStarted && value !== clicks) {
+      setDisplayedSentence(
+        (prevSentence) => prevSentence + words[clicks - value - 1] + " "
+      );
+    }
+  }, [isGameStarted, value, words, clicks]);
 
   // setting reset timer
   const resetTimer = () => {
@@ -34,6 +81,7 @@ const Lvl1: React.FC = () => {
       setValue(clicks);
       resetTimer();
       setIsGameStarted(false); // Reset the game state
+      setDisplayedSentence(""); // Reset the displayed sentence
     }
   }, [isGameStarted, timer, clicks]);
 
@@ -66,9 +114,9 @@ const Lvl1: React.FC = () => {
     <div>
       <h1>Level 1!</h1>
       {!isGameStarted && <button onClick={handleStartClick}>Start</button>}
+      {isGameStarted && value !== clicks && <p>{displayedSentence}</p>}
       <p>Time remaining: {timer} seconds</p>
       <button onClick={handleClick}>clicker</button>
-      <p>{value}</p>
     </div>
   );
 };
