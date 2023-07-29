@@ -14,13 +14,15 @@ const Home: React.FC = () => {
     <div>
       <h4>Dear Mr. Arouet, </h4>
       <p>
-        Nowadays no one has the time to read a 38000 word long novel. <br />
-        Please re-draft in 160 words max ... and make sure not to lose your
-        readers attention. <br />
+        I read your draft, and the story is promising. <br />
+        However nowadays no one has time to read a 38000 word long novel. <br />
+        Please keep it in 160 words ... and make sure to keep it engaging.{" "}
+        <br />
+        Also, please send the final draft back within 3 days. <br /> <br />
         Thanks, <br />
         Cramer's Publishing
       </p>
-      <button onClick={handleClick}>Start New Draft</button>
+      <button onClick={handleClick}>Start Final Draft</button>
     </div>
   );
 };

@@ -1,6 +1,26 @@
-Intro story
-Dear Mr. Voltaire,
-Nowadays no one has the time to read a 38000 word long novel.
-Please re-draft in 160 words ... and make sure not lose your readers attention.
-Thanks,
-Cramer's Publishing
+second act: Death
+
+["Homeless,", "he", "joins", "the", "army,", "witnessing", "the", "horrors", "of", "war.",
+                  "He", "makes", "his", "way", "to", "Christian", "Holland", "and", "finds", "a", "kind",
+                  "Anabaptist,", "who", "takes", "him", "away", "to", "Lisbon", "via", "ship.",
+                  "There", "Candide", "surprisingly", "finds", "Cunégonde,", "who", "escaped", "the",
+                  "castle", "that", "was", "attacked", "by", "soldiers.", "She", "is", "living", "with", "two",
+                  "powerful", "men", "who", "come", "upon", "the", "young", "lovers,", "and", "Candide"]
+
+
+final act: The World
+
+["Candide", "kills", "them", "both.", "Frightened,", "they", "escape", "through", "a", "vessel",
+                  "loading", "up", "for", "a", "mission", "in", "South", "America.", "In", "Buenos", "Aires,",
+                  "they", "meet", "the", "governor,", "who", "takes", "an", "interest", "in", "Cunégonde.",
+                  "Heartbroken", "—", ",", "Candide", "cannot", "fight", "and", "must", "flee.",
+                  "Candide", "ends", "up", "in", "Eldorado,", "a", "country", "filled", "with", "gold",
+                  "for", "which", "the", "citizens", "have", "no", "use", "because", "everyone's", "needs",
+                  "are", "met.", "Eager", "to", "find", "Cunégonde,", "Candide", "leaves", "loaded", "with",
+                  "gold,", "and", "other", "supplies.", "An", "informant", "tells", "him", "that", "Cunégonde",
+                  "is", "now", "in", "Constantinople,", "working", "as", "a", "servant.", "Candide", "set",
+                  "off", "to", "find", "Cunégonde,", "during", "the", "trip", "most", "of", "his", "fortune",
+                  "gets", "lost,", "but", "once", "arrived,", "he", "buys", "her", "freedom.", "The", "two",
+                  "get", "married", "and", "buy", "a", "small", "farm", "with", "the", "last", "of", "his",
+                  "Eldorado", "fortune.", "Candide", "decides", "that", "this", "is", "how", "they", "will",
+                  "find", "happiness,", "and", "they", "begin", "to", "work", "on", "their", "farm."]

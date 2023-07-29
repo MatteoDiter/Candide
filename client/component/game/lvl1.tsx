@@ -18,34 +18,35 @@ const Lvl1: React.FC = () => {
   useEffect(() => {
     const wordArray: string[] = [
       "Candide",
-      "follows",
-      "Candide's",
-      "'misadventures'",
-      "'challenging'",
-      "'his'",
-      "'optimistic'",
-      "'beliefs.'",
-      "'The'",
-      "'satirical'",
-      "'novella'",
-      "'criticizes'",
-      "'society's'",
-      "'absurdities'",
-      "'and'",
-      "'advocates'",
-      "'for'",
-      "'rationality'",
-      "'and'",
-      "'you'",
-      "'know'",
-      "'its'",
-      "'true'",
-      "'one'",
-      "'more'",
-      "'and'",
-      "'two'",
-      "'more'",
-      "'ciao'",
+      "lives",
+      "in",
+      "the",
+      "castle",
+      "of",
+      "Baron",
+      "of",
+      "Thunder-ten-tronckh.",
+      "When",
+      "the",
+      "baron",
+      "catches",
+      "him",
+      "having",
+      "an",
+      "affair",
+      "with",
+      "his",
+      "daughter,",
+      "Cunégonde,",
+      "Candide",
+      "is",
+      "kicked",
+      "out",
+      "of",
+      "the",
+      "castle.",
+      "Homeless, ...",
+      "...",
     ];
     setWords(wordArray);
   }, []);
@@ -112,7 +113,7 @@ const Lvl1: React.FC = () => {
 
   return (
     <div>
-      <h1>Level 1!</h1>
+      <h1>First Act: The Lovers</h1>
       {!isGameStarted && <button onClick={handleStartClick}>Start</button>}
       {isGameStarted && value !== clicks && <p>{displayedSentence}</p>}
       <p>Time remaining: {timer} seconds</p>

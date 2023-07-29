@@ -12,9 +12,9 @@ const App: React.FC = () => {
     <BrowserRouter>
       <div>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/lvl1" element={<Lvl1 />} />
           <Route path="/lvl2" element={<Lvl2 />} />
           <Route path="/lvl3" element={<Lvl3 />} />
