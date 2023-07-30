@@ -1,0 +1,15 @@
+// fonts
+@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
+
+// colors
+$main-color: rgb(62, 62, 62);
+
+body {
+  background-color: $main-color;
+  font-family: "caveat";
+  color: rgb(214, 214, 214);
+}
+
+.start {
+  background-color: red;
+}

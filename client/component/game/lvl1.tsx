@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "../../styles.scss";
 
 const Lvl1: React.FC = () => {
   // set time and clicks
@@ -25,7 +26,9 @@ const Lvl1: React.FC = () => {
       "of",
       "Baron",
       "of",
-      "Thunder-ten-tronckh.",
+      "Thunder",
+      "-ten",
+      "-tronckh.",
       "When",
       "the",
       "baron",
@@ -42,11 +45,8 @@ const Lvl1: React.FC = () => {
       "is",
       "kicked",
       "out",
-      "of",
-      "the",
+      "of the",
       "castle.",
-      "Homeless, ...",
-      "...",
     ];
     setWords(wordArray);
   }, []);
@@ -114,6 +114,7 @@ const Lvl1: React.FC = () => {
   return (
     <div>
       <h1>First Act: The Lovers</h1>
+      <p>{clicks - value}</p>
       {!isGameStarted && <button onClick={handleStartClick}>Start</button>}
       {isGameStarted && value !== clicks && <p>{displayedSentence}</p>}
       <p>Time remaining: {timer} seconds</p>
