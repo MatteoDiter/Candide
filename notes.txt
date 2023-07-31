@@ -24,3 +24,5 @@ final act: The World
                   "get", "married", "and", "buy", "a", "small", "farm", "with", "the", "last", "of", "his",
                   "Eldorado", "fortune.", "Candide", "decides", "that", "this", "is", "how", "they", "will",
                   "find", "happiness,", "and", "they", "begin", "to", "work", "on", "their", "farm."]
+
+add sotryline file to have the 3 words array
