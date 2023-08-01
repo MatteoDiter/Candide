@@ -25,4 +25,4 @@ final act: The World
                   "Eldorado", "fortune.", "Candide", "decides", "that", "this", "is", "how", "they", "will",
                   "find", "happiness,", "and", "they", "begin", "to", "work", "on", "their", "farm."]
 
-add sotryline file to have the 3 words array
+add storyline file to have the 3 words array
