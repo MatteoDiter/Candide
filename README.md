@@ -1,2 +1,2 @@
-# B-Plate
-Boiler plate for full stack React Application
+# Candide 316
+Stress-inducing storytelling clicker game.
