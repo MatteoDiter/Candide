@@ -18,7 +18,7 @@ const Home: React.FC = () => {
         I read your draft, and the story is promising. <br />
         However nowadays no one has time to read a 38000 word long novel. <br />
         Please condense it, and make sure to keep it engaging. <br />
-        Also, please send the final draft back within 3 days. <br /> <br />
+        <br />
         Thanks, <br />
         Cramer's Publishing
       </p>
