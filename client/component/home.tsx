@@ -12,6 +12,7 @@ const Home: React.FC = () => {
 
   return (
     <div>
+      <h3>Candide 3/16</h3>
       <h4>Dear Mr. Arouet, </h4>
       <p>
         I read your draft, and the story is promising. <br />
