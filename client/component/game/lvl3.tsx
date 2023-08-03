@@ -163,7 +163,7 @@ const Lvl3: React.FC = () => {
 
   return (
     <div>
-      <h1>Final Act: Wheel of Fortune</h1>
+      <h3>Final Act: Wheel of Fortune</h3>
       {!isGameStarted && <button onClick={handleStartClick}>Start</button>}
       {isGameStarted && value !== clicks && <p>{displayedSentence}</p>}
       <p>Time remaining: {timer} seconds</p>

@@ -113,7 +113,7 @@ const Lvl1: React.FC = () => {
 
   return (
     <div>
-      <h1>First Act: The Lovers</h1>
+      <h3>First Act: The Lovers</h3>
       <p>{clicks - value}</p>
       {!isGameStarted && <button onClick={handleStartClick}>Start</button>}
       {isGameStarted && value !== clicks && <p>{displayedSentence}</p>}

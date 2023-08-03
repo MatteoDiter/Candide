@@ -133,7 +133,7 @@ const Lvl2: React.FC = () => {
 
   return (
     <div>
-      <h1>Second Act: Death</h1>
+      <h3>Second Act: Death</h3>
       {!isGameStarted && <button onClick={handleStartClick}>Start</button>}
       {isGameStarted && value !== clicks && <p>{displayedSentence}</p>}
       <p>Time remaining: {timer} seconds</p>
