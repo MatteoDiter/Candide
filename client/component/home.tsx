@@ -15,9 +15,10 @@ const Home: React.FC = () => {
       <h3>Candide 3/16</h3>
       <h4>Dear Mr. Arouet, </h4>
       <p>
-        I read your draft, and the story is promising. <br />
-        However nowadays no one has time to read a 38000 word long novel. <br />
-        Please condense it, and make sure to keep it engaging. <br />
+        I read your draft, and your novel is promising. <br />
+        However, its a bit too long for nowadays standards. <br />
+        Please condense it to a 30 seconds read, and make sure to keep it
+        engaging. <br />
         <br />
         Thanks, <br />
         Cramer's Publishing
