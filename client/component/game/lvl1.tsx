@@ -13,6 +13,7 @@ const Lvl1: React.FC = () => {
   const [isGameStarted, setIsGameStarted] = useState(false); // track when the game has started
   const [words, setWords] = useState<string[]>([]); // array of words
   const [displayedSentence, setDisplayedSentence] = useState(""); // displayed sentence
+  const [progressWidth, setProgressWidth] = useState(0); // progress bar width
   const navigate = useNavigate(); // setup navigation to next level
 
   // Array of words to be displayed on each click
@@ -108,16 +109,28 @@ const Lvl1: React.FC = () => {
   const handleClick = () => {
     if (isGameStarted) {
       setValue((prevValue) => prevValue - 1);
+
+      // Calculate the new progress bar width based on the remaining clicks
+      const remainingClicks = value - 1;
+      const progress = 100 - (remainingClicks / clicks) * 100;
+      const newProgressWidth = (progress / 100) * 800;
+      setProgressWidth(newProgressWidth);
     }
   };
 
   return (
     <div>
       <h3>First Act: The Lovers</h3>
-      <p>{clicks - value}</p>
-      {!isGameStarted && <button onClick={handleStartClick}>Start</button>}
+      {/* <p>{clicks - value}</p> */}
+      <div
+        className="progress-bar"
+        style={{
+          width: progressWidth,
+        }}
+      />
       {isGameStarted && value !== clicks && <p>{displayedSentence}</p>}
       <p>Time remaining: {timer} seconds</p>
+      {!isGameStarted && <button onClick={handleStartClick}>Start</button>}
       <button onClick={handleClick}>clicker</button>
     </div>
   );
