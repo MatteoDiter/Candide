@@ -19,17 +19,18 @@ body {
 .progress-bar {
   position: relative;
   height: 50px;
+  left: 0;
   border-radius: 5px;
   background-color: #f1f1f1;
   overflow: hidden;
 }
 
-.progress-bar::before {
-  content: "";
+.engagement-bar {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  background-color: #4caf50;
-  //transition: width 0.3s ease-in-out;
+  height: 50px;
+  right: 0;
+  border-radius: 5px;
+  background-color: #d06161;
+  transition: width 1s ease-in-out;
+  overflow: hidden;
 }
