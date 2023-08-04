@@ -29,7 +29,7 @@ const Lvl1: React.FC = () => {
       setRemainingClicks((prevValue) => prevValue - 1);
 
       // Calculate the progress bar width based on the remaining clicks
-      const progress = 100 - (remainingClicks / clicks) * 100;
+      const progress = 100 - ((remainingClicks - 1) / clicks) * 100;
       const newProgressWidth = progress;
       setProgressWidth(newProgressWidth);
     }
@@ -80,12 +80,12 @@ const Lvl1: React.FC = () => {
       // set a delay before navigate or will cause re-rendering issue // cant render at the same time
       setTimeout(() => {
         alert("You Lost");
-      }, 500);
-      setRemainingClicks(clicks);
-      resetTimer(); // reset timer
-      setProgressWidth(0); // reset progress
-      setIsGameStarted(false); // Reset the game state
-      setDisplayedSentence(""); // Reset the displayed sentence
+        setRemainingClicks(clicks);
+        resetTimer(); // reset timer
+        setProgressWidth(0); // reset progress
+        setIsGameStarted(false); // Reset the game state
+        setDisplayedSentence(""); // Reset the displayed sentence
+      }, 5);
     }
   }, [isGameStarted, timer, clicks]);
 
@@ -98,7 +98,7 @@ const Lvl1: React.FC = () => {
         resetTimer();
         setIsGameStarted(false); // Reset the game state
         navigate("/lvl2");
-      }, 500);
+      }, 5);
     }
   }, [isGameStarted, remainingClicks, navigate]);
 
