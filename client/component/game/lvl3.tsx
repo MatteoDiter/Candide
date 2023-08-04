@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { wordArray3 } from "./storyline";
 import "../../styles.scss";
 
 const Lvl3: React.FC = () => {
@@ -17,88 +18,8 @@ const Lvl3: React.FC = () => {
 
   // Array of words to be displayed on each click
   useEffect(() => {
-    const wordArray: string[] = [
-      "Frightened,",
-      "they escape",
-      "through",
-      "a vessel",
-      "loading up",
-      "for a mission",
-      "in South America.",
-      "In Buenos Aires",
-      "they meet",
-      "the governor",
-      "who takes",
-      "an interest",
-      "in Cunégonde.",
-      "Heartbroken,",
-      "Candide",
-      "cannot fight",
-      "and must flee.",
-      "Candide",
-      "ends up",
-      "in Eldorado,",
-      "a country",
-      "filled",
-      "with gold",
-      "for which",
-      "the citizens",
-      "have no use",
-      "because",
-      "everyone's",
-      "needs are met.",
-      "Eager",
-      "to find",
-      "Cunégonde,",
-      "Candide",
-      "leaves",
-      "loaded",
-      "with gold,",
-      "and other",
-      "supplies.",
-      "An informant",
-      "tells",
-      "him that",
-      "Cunégonde",
-      "is now",
-      "in Constantinople,",
-      "working",
-      "as a servant.",
-      "Candide",
-      "sets off to",
-      "find",
-      "Cunégonde,",
-      "during the trip",
-      "most",
-      "of his",
-      "fortune",
-      "gets lost,",
-      "but once",
-      "arrived,",
-      "he buys",
-      "her",
-      "freedom.",
-      "The two",
-      "get married",
-      "and buy",
-      "a small farm",
-      "with the last",
-      "of his",
-      "Eldorado",
-      "fortune.",
-      "Candide",
-      "decides",
-      "that this",
-      "is how",
-      "they will find",
-      "happiness,",
-      "and they",
-      "begin",
-      "to work",
-      "on their",
-      "farm.",
-    ];
-    setWords(wordArray);
+    wordArray3;
+    setWords(wordArray3);
   }, []);
 
   // Display sentence effect

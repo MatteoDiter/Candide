@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { wordArray1 } from "./storyline";
 import "../../styles.scss";
 
 const Lvl1: React.FC = () => {
@@ -8,62 +9,53 @@ const Lvl1: React.FC = () => {
   const clicks = 30;
 
   // set states
-  const [value, setValue] = useState(clicks); // clicks left to beat the game
+  const [remainingClicks, setRemainingClicks] = useState(clicks); // clicks left to beat the game
   const [timer, setTimer] = useState(time); // time left to beat the game
   const [isGameStarted, setIsGameStarted] = useState(false); // track when the game has started
   const [words, setWords] = useState<string[]>([]); // array of words
   const [displayedSentence, setDisplayedSentence] = useState(""); // displayed sentence
+  const [progressWidth, setProgressWidth] = useState(0); // progress bar
+  const [engagementWidth, setEngagementWidth] = useState(0); // engagement bar
   const navigate = useNavigate(); // setup navigation to next level
+
+  // handle game start
+  const handleStartClick = () => {
+    setIsGameStarted(true);
+  };
+
+  // handle click logic
+  const handleClick = () => {
+    if (isGameStarted) {
+      setRemainingClicks((prevValue) => prevValue - 1);
+
+      // Calculate the progress bar width based on the remaining clicks
+      const progress = 100 - ((remainingClicks - 1) / clicks) * 100;
+      const newProgressWidth = progress;
+      setProgressWidth(newProgressWidth);
+    }
+  };
 
   // Array of words to be displayed on each click
   useEffect(() => {
-    const wordArray: string[] = [
-      "Candide",
-      "lives",
-      "in",
-      "the",
-      "castle",
-      "of",
-      "Baron",
-      "of",
-      "Thunder",
-      "-ten",
-      "-tronckh.",
-      "When",
-      "the",
-      "baron",
-      "catches",
-      "him",
-      "having",
-      "an",
-      "affair",
-      "with",
-      "his",
-      "daughter,",
-      "Cunégonde,",
-      "Candide",
-      "is",
-      "kicked",
-      "out",
-      "of the",
-      "castle.",
-    ];
-    setWords(wordArray);
+    wordArray1;
+    setWords(wordArray1);
   }, []);
 
   // Display sentence effect
   useEffect(() => {
-    if (isGameStarted && value !== clicks) {
+    if (isGameStarted && remainingClicks !== clicks) {
       setDisplayedSentence(
-        (prevSentence) => prevSentence + words[clicks - value - 1] + " "
+        (prevSentence) =>
+          prevSentence + words[clicks - remainingClicks - 1] + " "
       );
     }
-  }, [isGameStarted, value, words, clicks]);
+  }, [isGameStarted, remainingClicks, words, clicks]);
 
   // setting reset timer
   const resetTimer = () => {
     setTimer(time);
   };
+
   // timer logic
   useEffect(() => {
     if (isGameStarted) {
@@ -75,49 +67,63 @@ const Lvl1: React.FC = () => {
     }
   }, [isGameStarted]);
 
+  // update engagement bar width whenever the timer changes
+  useEffect(() => {
+    const engagement = 100 - (timer / time) * 100;
+    const newEngagementWidth = engagement;
+    setEngagementWidth(newEngagementWidth);
+  }, [timer]);
+
   // game over logic by time
   useEffect(() => {
     if (isGameStarted && timer === 0) {
-      alert("Time's Up! - Game Over");
-      setValue(clicks);
-      resetTimer();
-      setIsGameStarted(false); // Reset the game state
-      setDisplayedSentence(""); // Reset the displayed sentence
+      // set a delay before navigate or will cause re-rendering issue // cant render at the same time
+      setTimeout(() => {
+        alert("You Lost");
+        setRemainingClicks(clicks);
+        resetTimer(); // reset timer
+        setProgressWidth(0); // reset progress
+        setIsGameStarted(false); // Reset the game state
+        setDisplayedSentence(""); // Reset the displayed sentence
+      }, 5);
     }
   }, [isGameStarted, timer, clicks]);
 
   // game win logic by clicks
   useEffect(() => {
-    if (isGameStarted && value === 0) {
-      alert("You Win");
-      resetTimer();
-      setIsGameStarted(false); // Reset the game state
+    if (isGameStarted && remainingClicks === 0) {
       // set a delay before navigate or will cause re-rendering issue // cant render at the same time
       setTimeout(() => {
+        alert("You Win");
+        resetTimer();
+        setIsGameStarted(false); // Reset the game state
         navigate("/lvl2");
-      }, 100);
+      }, 5);
     }
-  }, [isGameStarted, value, navigate]);
-
-  // handle game start
-  const handleStartClick = () => {
-    setIsGameStarted(true);
-  };
-
-  // handle click logic
-  const handleClick = () => {
-    if (isGameStarted) {
-      setValue((prevValue) => prevValue - 1);
-    }
-  };
+  }, [isGameStarted, remainingClicks, navigate]);
 
   return (
     <div>
       <h3>First Act: The Lovers</h3>
-      <p>{clicks - value}</p>
+      <div className="center-line" />
+      {/* <p>{clicks - value}</p> */}
+      <div
+        className="progress-bar"
+        style={{
+          width: `calc(var(--screen-width) * ${progressWidth / 100})`,
+        }}
+      />
+      <div
+        className="engagement-bar"
+        style={{
+          width: `calc(var(--screen-width) * ${engagementWidth / 100})`,
+        }}
+      />
+      {isGameStarted && remainingClicks !== clicks && (
+        <p>{displayedSentence}</p>
+      )}
+      {/* <p>Time remaining: {timer} seconds</p> */}
       {!isGameStarted && <button onClick={handleStartClick}>Start</button>}
-      {isGameStarted && value !== clicks && <p>{displayedSentence}</p>}
-      <p>Time remaining: {timer} seconds</p>
       <button onClick={handleClick}>clicker</button>
     </div>
   );

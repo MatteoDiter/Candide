@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { wordArray2 } from "./storyline";
 import "../../styles.scss";
 
 const Lvl2: React.FC = () => {
@@ -17,58 +18,8 @@ const Lvl2: React.FC = () => {
 
   // Array of words to be displayed on each click
   useEffect(() => {
-    const wordArray: string[] = [
-      "Homeless,",
-      "he",
-      "joins",
-      "the army,",
-      "witnessing",
-      "the",
-      "horrors",
-      "of war.",
-      "He",
-      "makes",
-      "his way",
-      "to",
-      "Holland",
-      "and",
-      "finds",
-      "a kind",
-      "Anabaptist,",
-      "who",
-      "takes him",
-      "away",
-      "to Lisbon",
-      "via",
-      "ship.",
-      "There,",
-      "Candide",
-      "surprisingly",
-      "finds",
-      "Cunégonde,",
-      "who",
-      "escaped",
-      "the castle",
-      "that was",
-      "attacked",
-      "during the war.",
-      "She",
-      "is living",
-      "with",
-      "two",
-      "powerful",
-      "men",
-      "who",
-      "come",
-      "upon",
-      "the young",
-      "lovers,",
-      "and",
-      "Candide",
-      "kills",
-      "them both.",
-    ];
-    setWords(wordArray);
+    wordArray2;
+    setWords(wordArray2);
   }, []);
 
   // Display sentence effect
