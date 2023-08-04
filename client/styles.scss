@@ -12,6 +12,20 @@ body {
   color: rgb(235, 235, 235);
 }
 
+.center-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5px;
+  height: 600px;
+  background-color: green;
+}
+
+:root {
+  --screen-width: 50vw; /* 50% of the viewport width */
+}
+
 .start {
   background-color: red;
 }
@@ -19,6 +33,7 @@ body {
 .progress-bar {
   position: relative;
   height: 50px;
+  width: var(--screen-width);
   left: 0;
   border-radius: 5px;
   background-color: #f1f1f1;
@@ -28,9 +43,9 @@ body {
 .engagement-bar {
   position: absolute;
   height: 50px;
+  width: var(--screen-width);
   right: 0;
   border-radius: 5px;
   background-color: #d06161;
-  transition: width 1s ease-in-out;
   overflow: hidden;
 }

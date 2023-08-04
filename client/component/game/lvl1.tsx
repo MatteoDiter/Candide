@@ -15,7 +15,7 @@ const Lvl1: React.FC = () => {
   const [words, setWords] = useState<string[]>([]); // array of words
   const [displayedSentence, setDisplayedSentence] = useState(""); // displayed sentence
   const [progressWidth, setProgressWidth] = useState(0); // progress bar
-  const [engagementWidth, setEngagementWidth] = useState(0); // progress bar
+  const [engagementWidth, setEngagementWidth] = useState(0); // engagement bar
   const navigate = useNavigate(); // setup navigation to next level
 
   // handle game start
@@ -30,7 +30,7 @@ const Lvl1: React.FC = () => {
 
       // Calculate the progress bar width based on the remaining clicks
       const progress = 100 - (remainingClicks / clicks) * 100;
-      const newProgressWidth = (progress / 100) * 800;
+      const newProgressWidth = progress;
       setProgressWidth(newProgressWidth);
     }
   };
@@ -70,16 +70,20 @@ const Lvl1: React.FC = () => {
   // update engagement bar width whenever the timer changes
   useEffect(() => {
     const engagement = 100 - (timer / time) * 100;
-    const newEngagementWidth = (engagement / 100) * 800;
+    const newEngagementWidth = engagement;
     setEngagementWidth(newEngagementWidth);
   }, [timer]);
 
   // game over logic by time
   useEffect(() => {
     if (isGameStarted && timer === 0) {
-      alert("Time's Up! - Game Over");
+      // set a delay before navigate or will cause re-rendering issue // cant render at the same time
+      setTimeout(() => {
+        alert("You Lost");
+      }, 500);
       setRemainingClicks(clicks);
-      resetTimer();
+      resetTimer(); // reset timer
+      setProgressWidth(0); // reset progress
       setIsGameStarted(false); // Reset the game state
       setDisplayedSentence(""); // Reset the displayed sentence
     }
@@ -88,36 +92,37 @@ const Lvl1: React.FC = () => {
   // game win logic by clicks
   useEffect(() => {
     if (isGameStarted && remainingClicks === 0) {
-      alert("You Win");
-      resetTimer();
-      setIsGameStarted(false); // Reset the game state
       // set a delay before navigate or will cause re-rendering issue // cant render at the same time
       setTimeout(() => {
+        alert("You Win");
+        resetTimer();
+        setIsGameStarted(false); // Reset the game state
         navigate("/lvl2");
-      }, 100);
+      }, 500);
     }
   }, [isGameStarted, remainingClicks, navigate]);
 
   return (
     <div>
       <h3>First Act: The Lovers</h3>
+      <div className="center-line" />
       {/* <p>{clicks - value}</p> */}
       <div
         className="progress-bar"
         style={{
-          width: progressWidth,
+          width: `calc(var(--screen-width) * ${progressWidth / 100})`,
         }}
       />
       <div
         className="engagement-bar"
         style={{
-          width: engagementWidth,
+          width: `calc(var(--screen-width) * ${engagementWidth / 100})`,
         }}
       />
       {isGameStarted && remainingClicks !== clicks && (
         <p>{displayedSentence}</p>
       )}
-      <p>Time remaining: {timer} seconds</p>
+      {/* <p>Time remaining: {timer} seconds</p> */}
       {!isGameStarted && <button onClick={handleStartClick}>Start</button>}
       <button onClick={handleClick}>clicker</button>
     </div>
