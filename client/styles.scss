@@ -9,7 +9,7 @@ $secondary: rgb(235, 235, 235);
 
 body {
   background-color: $main-color;
-  font-size: 1.6vw;
+  font-size: 1.4vw;
   font-family: "Martial Mono", monospace;
   color: $secondary;
   height: 100vh;
@@ -104,24 +104,6 @@ body {
   align-self: stretch;
 }
 
-// .start {
-//   grid-row-start: 4;
-//   grid-row-end: 4;
-//   grid-column-start: 3;
-//   grid-column-end: 3;
-//   justify-self: center;
-//   align-self: center;
-// }
-
-// .click {
-//   grid-row-start: 4;
-//   grid-row-end: 4;
-//   grid-column-start: 3;
-//   grid-column-end: 3;
-//   justify-self: center;
-//   align-self: center;
-// }
-
 // buttons
 .button {
   grid-row-start: 4;
@@ -131,7 +113,7 @@ body {
   justify-self: center;
   align-self: center;
   border-radius: 3px;
-  font-size: 1.6vw;
+  font-size: 1.4vw;
   font-family: "Martial Mono", monospace;
   background: $main2;
   color: $main-color;
@@ -152,10 +134,4 @@ body {
   &:hover {
     background: $secondary;
   }
-  // &:active {
-  //   &:after {
-  //     width: 300px;
-  //     height: 300px;
-  //   }
-  // }
 }
