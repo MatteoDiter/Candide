@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { wordArray2 } from "./storyline";
+import { longArray1 } from "./longform";
 import "../../styles.scss";
 
 const Lvl2: React.FC = () => {
@@ -132,6 +133,7 @@ const Lvl2: React.FC = () => {
             width: `calc(var(--screen-width) * ${engagementWidth / 100})`,
           }}
         />
+        <p className="paragraph">{longArray1}</p>
         {isGameStarted && remainingClicks !== clicks && (
           <p className="paragraph">{displayedSentence}</p>
         )}
