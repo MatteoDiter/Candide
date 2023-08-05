@@ -28,6 +28,8 @@ export const wordArray1: string[] = [
   "out",
   "of the",
   "castle.",
+  "",
+  "",
 ];
 
 export const wordArray2: string[] = [

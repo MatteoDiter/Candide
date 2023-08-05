@@ -5,16 +5,35 @@ import "../../styles.scss";
 
 const Lvl2: React.FC = () => {
   // set time and clicks
-  const time = 10;
+  const time = 7;
   const clicks = 50;
 
   // set states
-  const [value, setValue] = useState(clicks); // clicks left to beat the game
+  const [remainingClicks, setRemainingClicks] = useState(clicks); // clicks left to beat the game
   const [timer, setTimer] = useState(time); // time left to beat the game
   const [isGameStarted, setIsGameStarted] = useState(false); // track when the game has started
   const [words, setWords] = useState<string[]>([]); // array of words
   const [displayedSentence, setDisplayedSentence] = useState(""); // displayed sentence
+  const [progressWidth, setProgressWidth] = useState(0); // progress bar
+  const [engagementWidth, setEngagementWidth] = useState(0); // engagement bar
   const navigate = useNavigate(); // setup navigation to next level
+
+  // handle game start
+  const handleStartClick = () => {
+    setIsGameStarted(true);
+  };
+
+  // handle click logic
+  const handleClick = () => {
+    if (isGameStarted) {
+      setRemainingClicks((prevValue) => prevValue - 1);
+
+      // Calculate the progress bar width based on the remaining clicks
+      const progress = 100 - ((remainingClicks - 1) / clicks) * 100;
+      const newProgressWidth = progress;
+      setProgressWidth(newProgressWidth);
+    }
+  };
 
   // Array of words to be displayed on each click
   useEffect(() => {
@@ -24,17 +43,19 @@ const Lvl2: React.FC = () => {
 
   // Display sentence effect
   useEffect(() => {
-    if (isGameStarted && value !== clicks) {
+    if (isGameStarted && remainingClicks !== clicks) {
       setDisplayedSentence(
-        (prevSentence) => prevSentence + words[clicks - value - 1] + " "
+        (prevSentence) =>
+          prevSentence + words[clicks - remainingClicks - 1] + " "
       );
     }
-  }, [isGameStarted, value, words, clicks]);
+  }, [isGameStarted, remainingClicks, words, clicks]);
 
   // setting reset timer
   const resetTimer = () => {
     setTimer(time);
   };
+
   // timer logic
   useEffect(() => {
     if (isGameStarted) {
@@ -46,49 +67,84 @@ const Lvl2: React.FC = () => {
     }
   }, [isGameStarted]);
 
+  // update engagement bar width whenever the timer changes
+  useEffect(() => {
+    const engagement = 100 - (timer / time) * 100;
+    const newEngagementWidth = engagement;
+    setEngagementWidth(newEngagementWidth);
+  }, [timer]);
+
   // game over logic by time
   useEffect(() => {
     if (isGameStarted && timer === 0) {
-      alert("Time's Up! - Game Over");
-      setValue(clicks);
-      resetTimer();
-      setIsGameStarted(false); // Reset the game state
-      setDisplayedSentence(""); // Reset the displayed sentence
+      // set a delay before navigate or will cause re-rendering issue // cant render at the same time
+      setTimeout(() => {
+        alert("You Lost");
+        setRemainingClicks(clicks);
+        resetTimer(); // reset timer
+        setProgressWidth(0); // reset progress
+        setIsGameStarted(false); // Reset the game state
+        setDisplayedSentence(""); // Reset the displayed sentence
+      }, 5);
     }
   }, [isGameStarted, timer, clicks]);
 
   // game win logic by clicks
   useEffect(() => {
-    if (isGameStarted && value === 0) {
-      alert("You Win");
-      resetTimer();
-      setIsGameStarted(false); // Reset the game state
+    if (isGameStarted && remainingClicks === 0) {
       // set a delay before navigate or will cause re-rendering issue // cant render at the same time
       setTimeout(() => {
+        alert("You Win");
+        resetTimer();
+        setIsGameStarted(false); // Reset the game state
         navigate("/lvl3");
-      }, 100);
+      }, 5);
     }
-  }, [isGameStarted, value, navigate]);
-
-  // handle game start
-  const handleStartClick = () => {
-    setIsGameStarted(true);
-  };
-
-  // handle click logic
-  const handleClick = () => {
-    if (isGameStarted) {
-      setValue((prevValue) => prevValue - 1);
-    }
-  };
+  }, [isGameStarted, remainingClicks, navigate]);
 
   return (
     <div>
-      <h3>Second Act: Death</h3>
-      {!isGameStarted && <button onClick={handleStartClick}>Start</button>}
-      {isGameStarted && value !== clicks && <p>{displayedSentence}</p>}
-      <p>Time remaining: {timer} seconds</p>
-      <button onClick={handleClick}>clicker</button>
+      {/* <div className="center-line" /> */}
+      {/* <p>{clicks - value}</p> */}
+      <div className="container">
+        <hr
+          className="total-progress"
+          style={{
+            width: `calc(var(--screen-width) - 2px)`,
+          }}
+        />
+        <div
+          className="progress"
+          style={{
+            width: `calc(var(--screen-width) * ${progressWidth / 100})`,
+          }}
+        />
+        <h3 className="title">Second Act: Death</h3>
+        <hr
+          className="total-engagement"
+          style={{
+            width: `calc(var(--screen-width) - 2px)`,
+          }}
+        />
+        <div
+          className="engagement"
+          style={{
+            width: `calc(var(--screen-width) * ${engagementWidth / 100})`,
+          }}
+        />
+        {isGameStarted && remainingClicks !== clicks && (
+          <p className="paragraph">{displayedSentence}</p>
+        )}
+        {/* <p>Time remaining: {timer} seconds</p> */}
+        <button className="button" onClick={handleClick}>
+          keep typing
+        </button>
+        {!isGameStarted && (
+          <button className="button" onClick={handleStartClick}>
+            click to type
+          </button>
+        )}
+      </div>
     </div>
   );
 };

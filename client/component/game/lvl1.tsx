@@ -5,7 +5,7 @@ import "../../styles.scss";
 
 const Lvl1: React.FC = () => {
   // set time and clicks
-  const time = 10;
+  const time = 5;
   const clicks = 30;
 
   // set states
@@ -104,27 +104,47 @@ const Lvl1: React.FC = () => {
 
   return (
     <div>
-      <h3>First Act: The Lovers</h3>
-      <div className="center-line" />
+      {/* <div className="center-line" /> */}
       {/* <p>{clicks - value}</p> */}
-      <div
-        className="progress-bar"
-        style={{
-          width: `calc(var(--screen-width) * ${progressWidth / 100})`,
-        }}
-      />
-      <div
-        className="engagement-bar"
-        style={{
-          width: `calc(var(--screen-width) * ${engagementWidth / 100})`,
-        }}
-      />
-      {isGameStarted && remainingClicks !== clicks && (
-        <p>{displayedSentence}</p>
-      )}
-      {/* <p>Time remaining: {timer} seconds</p> */}
-      {!isGameStarted && <button onClick={handleStartClick}>Start</button>}
-      <button onClick={handleClick}>clicker</button>
+      <div className="container">
+        <hr
+          className="total-progress"
+          style={{
+            width: `calc(var(--screen-width) - 2px)`,
+          }}
+        />
+        <div
+          className="progress"
+          style={{
+            width: `calc(var(--screen-width) * ${progressWidth / 100})`,
+          }}
+        />
+        <h3 className="title">First Act: The Lovers</h3>
+        <hr
+          className="total-engagement"
+          style={{
+            width: `calc(var(--screen-width) - 2px)`,
+          }}
+        />
+        <div
+          className="engagement"
+          style={{
+            width: `calc(var(--screen-width) * ${engagementWidth / 100})`,
+          }}
+        />
+        {isGameStarted && remainingClicks !== clicks && (
+          <p className="paragraph">{displayedSentence}</p>
+        )}
+        {/* <p>Time remaining: {timer} seconds</p> */}
+        <button className="button" onClick={handleClick}>
+          keep typing
+        </button>
+        {!isGameStarted && (
+          <button className="button" onClick={handleStartClick}>
+            click to type
+          </button>
+        )}
+      </div>
     </div>
   );
 };
