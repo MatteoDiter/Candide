@@ -86,7 +86,7 @@ const Lvl3: React.FC = () => {
         setProgressWidth(0); // reset progress
         setIsGameStarted(false); // Reset the game state
         setDisplayedSentence(""); // Reset the displayed sentence
-      }, 5);
+      }, 1);
     }
   }, [isGameStarted, timer, clicks]);
 
@@ -99,7 +99,7 @@ const Lvl3: React.FC = () => {
         resetTimer();
         setIsGameStarted(false); // Reset the game state
         //navigate("/lvl3");
-      }, 5);
+      }, 1);
     }
   }, [isGameStarted, remainingClicks, navigate]);
 
