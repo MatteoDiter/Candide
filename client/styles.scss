@@ -9,7 +9,7 @@ $secondary: rgb(235, 235, 235);
 
 body {
   background-color: $main-color;
-  font-size: 1.4vw;
+  font-size: 1.3vw;
   font-family: "Martial Mono", monospace;
   color: $secondary;
   height: 100vh;
@@ -20,7 +20,7 @@ body {
 .container {
   display: grid;
   grid-template-columns: 5vw 35vw 20vw 35vw 5vw;
-  grid-template-rows: 5vh 20vh 50vh 20vh 5vh;
+  grid-template-rows: 5vh 20vh 9vh 16vh 25vh 20vh 5vh;
   justify-items: center;
   align-items: center;
 }
@@ -95,7 +95,7 @@ body {
   align-self: center;
 }
 
-.paragraph {
+.paragraph1 {
   grid-row-start: 3;
   grid-row-end: 3;
   grid-column-start: 2;
@@ -104,16 +104,34 @@ body {
   align-self: stretch;
 }
 
-// buttons
-.button {
+.paragraph2 {
   grid-row-start: 4;
   grid-row-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  justify-self: stretch;
+  align-self: stretch;
+}
+
+.paragraph3 {
+  grid-row-start: 5;
+  grid-row-end: 5;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  justify-self: stretch;
+  align-self: stretch;
+}
+
+// buttons
+.button {
+  grid-row-start: 6;
+  grid-row-end: 6;
   grid-column-start: 3;
   grid-column-end: 3;
   justify-self: center;
   align-self: center;
   border-radius: 3px;
-  font-size: 1.4vw;
+  font-size: 1.3vw;
   font-family: "Martial Mono", monospace;
   background: $main2;
   color: $main-color;

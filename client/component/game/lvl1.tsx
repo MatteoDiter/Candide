@@ -133,7 +133,7 @@ const Lvl1: React.FC = () => {
           }}
         />
         {isGameStarted && remainingClicks !== clicks && (
-          <p className="paragraph">{displayedSentence}</p>
+          <p className="paragraph1">{displayedSentence}</p>
         )}
         {/* <p>Time remaining: {timer} seconds</p> */}
         <button className="button" onClick={handleClick}>

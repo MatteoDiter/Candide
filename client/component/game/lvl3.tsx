@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { wordArray3 } from "./storyline";
+import { longArray1, longArray2 } from "./longform";
 import "../../styles.scss";
 
 const Lvl3: React.FC = () => {
@@ -132,8 +133,10 @@ const Lvl3: React.FC = () => {
             width: `calc(var(--screen-width) * ${engagementWidth / 100})`,
           }}
         />
+        <p className="paragraph1">{longArray1}</p>
+        <p className="paragraph2">{longArray2}</p>
         {isGameStarted && remainingClicks !== clicks && (
-          <p className="paragraph">{displayedSentence}</p>
+          <p className="paragraph3">{displayedSentence}</p>
         )}
         {/* <p>Time remaining: {timer} seconds</p> */}
         <button className="button" onClick={handleClick}>
