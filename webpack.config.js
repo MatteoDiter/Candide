@@ -66,7 +66,15 @@ module.exports = {
             // IMAGES
             {
               test: /\.png|svg|jpg|gif$/,
-              use: ['file-loader'],
+              use: [
+                {
+                  loader: 'file-loader',
+                  options: {
+                    name: '[name].[ext]', // Keep the original file name and extension
+                    outputPath: 'images/', // Output path for the images in the 'dist' directory
+                  },
+                },
+              ],
             },
         ]
     },
