@@ -14,7 +14,7 @@ const Home: React.FC = () => {
     <div>
       <div className="container">
         <h3 className="title">Candide 2.2/16</h3>
-        <div className="paragraph">
+        <div className="paragraph1">
           <h4>Dear Mr. Arouet, </h4>
           <p>
             I reviewed your draft, and found your novel to hold great promise.{" "}

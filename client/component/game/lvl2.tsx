@@ -86,7 +86,7 @@ const Lvl2: React.FC = () => {
         setProgressWidth(0); // reset progress
         setIsGameStarted(false); // Reset the game state
         setDisplayedSentence(""); // Reset the displayed sentence
-      }, 5);
+      }, 1);
     }
   }, [isGameStarted, timer, clicks]);
 
@@ -99,7 +99,7 @@ const Lvl2: React.FC = () => {
         resetTimer();
         setIsGameStarted(false); // Reset the game state
         navigate("/lvl3");
-      }, 5);
+      }, 1);
     }
   }, [isGameStarted, remainingClicks, navigate]);
 
@@ -133,9 +133,9 @@ const Lvl2: React.FC = () => {
             width: `calc(var(--screen-width) * ${engagementWidth / 100})`,
           }}
         />
-        <p className="paragraph">{longArray1}</p>
+        <p className="paragraph1">{longArray1}</p>
         {isGameStarted && remainingClicks !== clicks && (
-          <p className="paragraph">{displayedSentence}</p>
+          <p className="paragraph2">{displayedSentence}</p>
         )}
         {/* <p>Time remaining: {timer} seconds</p> */}
         <button className="button" onClick={handleClick}>
