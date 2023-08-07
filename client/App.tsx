@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUp from "./component/authentication/signup";
 import Login from "./component/authentication/login";
 import Home from "./component/home";
+import Start from "./component/start";
 import Lvl1 from "./component/game/lvl1";
 import Lvl2 from "./component/game/lvl2";
 import Lvl3 from "./component/game/lvl3";
@@ -14,6 +15,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/start" element={<Start />} />
           <Route path="/" element={<Home />} />
           <Route path="/lvl1" element={<Lvl1 />} />
           <Route path="/lvl2" element={<Lvl2 />} />
