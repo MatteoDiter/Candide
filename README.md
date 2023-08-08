@@ -1,8 +1,10 @@
-# Candide 316
-Stress-inducing storytelling clicker game.
+# Candide 2.2/16
 
-How to ?
+Candide is a fast paced story-telling clicker game inspired by the adventures of Candide by Voltaire
+
+How to play?
+
 1 - npm install
-2 - npm run build
-3 - npm start
-
+2 - npm start
+3 - visit localhost:8080
+3 - click away...
