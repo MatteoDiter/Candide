@@ -1,5 +1,5 @@
 // fonts
-@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap"); // caveat
+//@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap"); // caveat
 @import url("https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap"); // 'Martian Mono', monospace;
 
 // colors
@@ -122,34 +122,286 @@ body {
   align-self: stretch;
 }
 
-// buttons
-.button {
+// Buttons Version 1
+// .button {
+//   grid-row-start: 6;
+//   grid-row-end: 6;
+//   grid-column-start: 3;
+//   grid-column-end: 3;
+//   justify-self: center;
+//   align-self: center;
+//   border-radius: 3px;
+//   font-size: 1.3vw;
+//   font-family: "Martial Mono", monospace;
+//   background: $main2;
+//   color: $main-color;
+//   border: none;
+//   transition: background-color 0.6s ease-in-out;
+//   overflow: hidden;
+//   &:after {
+//     content: "";
+//     top: var(--mouse-y);
+//     left: var(--mouse-x);
+//     transform-style: flat;
+//     transform: translate3d(-50%, -50%, 0);
+//     background: rgba(rgb(24, 24, 24), 0.1);
+//     border-radius: 100%;
+//     transition: width 0.3s ease, height 0.3s ease;
+//   }
+//   &:focus,
+//   &:hover {
+//     background: $secondary;
+//   }
+// }
+
+// Buttons
+$angle: 8px;
+$angle-o: 4px;
+
+.btn {
   grid-row-start: 6;
   grid-row-end: 6;
   grid-column-start: 3;
   grid-column-end: 3;
-  justify-self: center;
-  align-self: center;
+  top: 0;
+  left: 0;
+  transition: all 0.15s linear 0s;
+  position: relative;
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: $secondary;
+
+  color: $main2;
+  font-family: "Martial Mono", monospace;
   border-radius: 3px;
   font-size: 1.3vw;
-  font-family: "Martial Mono", monospace;
-  background: $main2;
-  color: $main-color;
-  border: none;
-  transition: background-color 0.6s ease-in-out;
-  overflow: hidden;
-  &:after {
-    content: "";
-    top: var(--mouse-y);
-    left: var(--mouse-x);
-    transform-style: flat;
-    transform: translate3d(-50%, -50%, 0);
-    background: rgba(rgb(24, 24, 24), 0.1);
-    border-radius: 100%;
-    transition: width 0.3s ease, height 0.3s ease;
-  }
-  &:focus,
+
+  box-shadow: -6px 6px 0 $main2;
+  text-decoration: none;
+
   &:hover {
-    background: $secondary;
+    grid-row-start: 6;
+    grid-row-end: 6;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    top: 3px;
+    left: -3px;
+    box-shadow: -3px 3px 0 $main2;
+
+    &::after {
+      grid-row-start: 6;
+      grid-row-end: 6;
+      grid-column-start: 3;
+      grid-column-end: 3;
+      top: 1px;
+      left: -2px;
+      width: $angle-o;
+      height: $angle-o;
+    }
+
+    &::before {
+      grid-row-start: 6;
+      grid-row-end: 6;
+      grid-column-start: 3;
+      grid-column-end: 3;
+      bottom: -2px;
+      right: 1px;
+      width: $angle-o;
+      height: $angle-o;
+    }
+  }
+
+  &::after {
+    grid-row-start: 6;
+    grid-row-end: 6;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    transition: all 0.15s linear 0s;
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: -4px;
+    width: $angle;
+    height: $angle;
+    background-color: $main2;
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+
+  &::before {
+    grid-row-start: 6;
+    grid-row-end: 6;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    transition: all 0.15s linear 0s;
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    right: 2px;
+    width: $angle;
+    height: $angle;
+    background-color: $main2;
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+}
+
+a.btn {
+  grid-row-start: 6;
+  grid-row-end: 6;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  position: relative;
+}
+
+a:active.btn {
+  grid-row-start: 6;
+  grid-row-end: 6;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  top: 6px;
+  left: -6px;
+  box-shadow: none;
+
+  &:before {
+    grid-row-start: 6;
+    grid-row-end: 6;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    bottom: 1px;
+    right: 1px;
+  }
+
+  &:after {
+    grid-row-start: 6;
+    grid-row-end: 6;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    top: 1px;
+    left: 1px;
+  }
+}
+
+// Hidden button
+.btn2 {
+  grid-row-start: 6;
+  grid-row-end: 6;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  top: 3px;
+  left: -3px;
+  transition: all 0.15s linear 0s;
+  position: relative;
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: $secondary;
+
+  color: $main2;
+  font-family: "Martial Mono", monospace;
+  border-radius: 3px;
+  font-size: 1.3vw;
+
+  text-decoration: none;
+
+  &:hover {
+    grid-row-start: 6;
+    grid-row-end: 6;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    top: 3px;
+    left: -3px;
+    box-shadow: -3px 3px 0 $main2;
+
+    &::after {
+      grid-row-start: 6;
+      grid-row-end: 6;
+      grid-column-start: 3;
+      grid-column-end: 3;
+      top: 1px;
+      left: -2px;
+      width: $angle-o;
+      height: $angle-o;
+    }
+
+    &::before {
+      grid-row-start: 6;
+      grid-row-end: 6;
+      grid-column-start: 3;
+      grid-column-end: 3;
+      bottom: -2px;
+      right: 1px;
+      width: $angle-o;
+      height: $angle-o;
+    }
+  }
+
+  &::after {
+    grid-row-start: 6;
+    grid-row-end: 6;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    transition: all 0.15s linear 0s;
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: -4px;
+    width: $angle;
+    height: $angle;
+    background-color: $main2;
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+
+  &::before {
+    grid-row-start: 6;
+    grid-row-end: 6;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    transition: all 0.15s linear 0s;
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    right: 2px;
+    width: $angle;
+    height: $angle;
+    background-color: $main2;
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+}
+
+a.btn2 {
+  grid-row-start: 6;
+  grid-row-end: 6;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  position: relative;
+}
+
+a:active.btn2 {
+  grid-row-start: 6;
+  grid-row-end: 6;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  top: 6px;
+  left: -6px;
+  box-shadow: none;
+
+  &:before {
+    grid-row-start: 6;
+    grid-row-end: 6;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    bottom: 1px;
+    right: 1px;
+  }
+
+  &:after {
+    grid-row-start: 6;
+    grid-row-end: 6;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    top: 1px;
+    left: 1px;
   }
 }

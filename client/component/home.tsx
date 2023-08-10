@@ -28,9 +28,9 @@ const Home: React.FC = () => {
             Cramer's Publishing
           </p>
         </div>
-        <button className="button" onClick={handleClick}>
+        <a href="#" className="btn" onClick={handleClick}>
           Start Final Draft
-        </button>
+        </a>
       </div>
     </div>
   );

@@ -85,7 +85,7 @@ const Lvl1: React.FC = () => {
         setProgressWidth(0); // reset progress
         setIsGameStarted(false); // Reset the game state
         setDisplayedSentence(""); // Reset the displayed sentence
-      }, 1);
+      }, 10);
     }
   }, [isGameStarted, timer, clicks]);
 
@@ -98,7 +98,7 @@ const Lvl1: React.FC = () => {
         resetTimer();
         setIsGameStarted(false); // Reset the game state
         navigate("/lvl2");
-      }, 1);
+      }, 10);
     }
   }, [isGameStarted, remainingClicks, navigate]);
 
@@ -136,13 +136,13 @@ const Lvl1: React.FC = () => {
           <p className="paragraph1">{displayedSentence}</p>
         )}
         {/* <p>Time remaining: {timer} seconds</p> */}
-        <button className="button" onClick={handleClick}>
+        <a href="#" className="btn2" onClick={handleClick}>
           keep typing
-        </button>
+        </a>
         {!isGameStarted && (
-          <button className="button" onClick={handleStartClick}>
+          <a href="#" className="btn" onClick={handleStartClick}>
             click to type
-          </button>
+          </a>
         )}
       </div>
     </div>
