@@ -81,7 +81,8 @@ export const wordArray2: string[] = [
   "and",
   "Candide",
   "kills",
-  "them both.",
+  "them",
+  "both.",
 ];
 
 export const wordArray3: string[] = [
