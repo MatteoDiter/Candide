@@ -122,37 +122,37 @@ body {
   align-self: stretch;
 }
 
-// buttons
-.button {
-  grid-row-start: 6;
-  grid-row-end: 6;
-  grid-column-start: 3;
-  grid-column-end: 3;
-  justify-self: center;
-  align-self: center;
-  border-radius: 3px;
-  font-size: 1.3vw;
-  font-family: "Martial Mono", monospace;
-  background: $main2;
-  color: $main-color;
-  border: none;
-  transition: background-color 0.6s ease-in-out;
-  overflow: hidden;
-  &:after {
-    content: "";
-    top: var(--mouse-y);
-    left: var(--mouse-x);
-    transform-style: flat;
-    transform: translate3d(-50%, -50%, 0);
-    background: rgba(rgb(24, 24, 24), 0.1);
-    border-radius: 100%;
-    transition: width 0.3s ease, height 0.3s ease;
-  }
-  &:focus,
-  &:hover {
-    background: $secondary;
-  }
-}
+// Buttons Version 1
+// .button {
+//   grid-row-start: 6;
+//   grid-row-end: 6;
+//   grid-column-start: 3;
+//   grid-column-end: 3;
+//   justify-self: center;
+//   align-self: center;
+//   border-radius: 3px;
+//   font-size: 1.3vw;
+//   font-family: "Martial Mono", monospace;
+//   background: $main2;
+//   color: $main-color;
+//   border: none;
+//   transition: background-color 0.6s ease-in-out;
+//   overflow: hidden;
+//   &:after {
+//     content: "";
+//     top: var(--mouse-y);
+//     left: var(--mouse-x);
+//     transform-style: flat;
+//     transform: translate3d(-50%, -50%, 0);
+//     background: rgba(rgb(24, 24, 24), 0.1);
+//     border-radius: 100%;
+//     transition: width 0.3s ease, height 0.3s ease;
+//   }
+//   &:focus,
+//   &:hover {
+//     background: $secondary;
+//   }
+// }
 
 // Buttons
 $angle: 8px;
@@ -282,14 +282,14 @@ a:active.btn {
   }
 }
 
-// hidden button
+// Hidden button
 .btn2 {
   grid-row-start: 6;
   grid-row-end: 6;
   grid-column-start: 3;
   grid-column-end: 3;
-  top: 0;
-  left: 0;
+  top: 3px;
+  left: -3px;
   transition: all 0.15s linear 0s;
   position: relative;
   display: inline-block;
@@ -301,7 +301,6 @@ a:active.btn {
   border-radius: 3px;
   font-size: 1.3vw;
 
-  box-shadow: -6px 6px 0 $main2;
   text-decoration: none;
 
   &:hover {
@@ -371,7 +370,6 @@ a:active.btn {
   }
 }
 
-// clicking animation
 a.btn2 {
   grid-row-start: 6;
   grid-row-end: 6;
@@ -380,7 +378,7 @@ a.btn2 {
   position: relative;
 }
 
-a:active.btn {
+a:active.btn2 {
   grid-row-start: 6;
   grid-row-end: 6;
   grid-column-start: 3;
