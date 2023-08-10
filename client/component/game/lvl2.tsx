@@ -138,11 +138,11 @@ const Lvl2: React.FC = () => {
           <p className="paragraph2">{displayedSentence}</p>
         )}
         {/* <p>Time remaining: {timer} seconds</p> */}
-        <button className="button" onClick={handleClick}>
+        <button className="btn2" onClick={handleClick}>
           keep typing
         </button>
         {!isGameStarted && (
-          <button className="button" onClick={handleStartClick}>
+          <button className="btn" onClick={handleStartClick}>
             click to type
           </button>
         )}
