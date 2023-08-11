@@ -5,7 +5,7 @@ import "../../styles.scss";
 
 const Lvl1: React.FC = () => {
   // set time and clicks
-  const time = 5;
+  const time = 30;
   const clicks = 30;
 
   // set states
