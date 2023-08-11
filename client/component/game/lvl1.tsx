@@ -119,7 +119,7 @@ const Lvl1: React.FC = () => {
             width: `calc(var(--screen-width) * ${progressWidth / 100})`,
           }}
         />
-        <h3 className="title">First Act: The Lovers</h3>
+        <h3 className="title">First Act: Lovers</h3>
         <hr
           className="total-engagement"
           style={{
