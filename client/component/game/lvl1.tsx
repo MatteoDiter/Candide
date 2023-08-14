@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
 import { wordArray1 } from "./storyline";
 import "../../styles.scss";
@@ -16,6 +17,7 @@ const Lvl1: React.FC = () => {
   const [displayedSentence, setDisplayedSentence] = useState(""); // displayed sentence
   const [progressWidth, setProgressWidth] = useState(0); // progress bar
   const [engagementWidth, setEngagementWidth] = useState(0); // engagement bar
+  const [modalIsOpen, setModalIsOpen] = useState(false); // modal control
   const navigate = useNavigate(); // setup navigation to next level
 
   // handle game start
@@ -74,17 +76,27 @@ const Lvl1: React.FC = () => {
     setEngagementWidth(newEngagementWidth);
   }, [timer]);
 
+  // open the modal
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  // close the modal and reset game state
+  const closeModal = () => {
+    setModalIsOpen(false);
+    setRemainingClicks(clicks);
+    resetTimer();
+    setProgressWidth(0);
+    setIsGameStarted(false);
+    setDisplayedSentence("");
+  };
+
   // game over logic by time
   useEffect(() => {
     if (isGameStarted && timer === 0) {
       // set a delay before navigate or will cause re-rendering issue // cant render at the same time
       setTimeout(() => {
-        alert("You Lost");
-        setRemainingClicks(clicks);
-        resetTimer(); // reset timer
-        setProgressWidth(0); // reset progress
-        setIsGameStarted(false); // Reset the game state
-        setDisplayedSentence(""); // Reset the displayed sentence
+        openModal();
       }, 10);
     }
   }, [isGameStarted, timer, clicks]);
@@ -94,7 +106,7 @@ const Lvl1: React.FC = () => {
     if (isGameStarted && remainingClicks === 0) {
       // set a delay before navigate or will cause re-rendering issue // cant render at the same time
       setTimeout(() => {
-        alert("You Win");
+        openModal();
         resetTimer();
         setIsGameStarted(false); // Reset the game state
         navigate("/lvl2");
@@ -107,6 +119,25 @@ const Lvl1: React.FC = () => {
       {/* <div className="center-line" /> */}
       {/* <p>{clicks - value}</p> */}
       <div className="container">
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          contentLabel="Game Outcome"
+          className="modal"
+        >
+          {remainingClicks === 0 ? (
+            <div>
+              <h2>Chapter Approved</h2>
+              <p>Congratulations! You completed the level.</p>
+            </div>
+          ) : (
+            <div>
+              <h2>Chapter Rejected</h2>
+              <p>Sorry, you didn't complete the level in time.</p>
+            </div>
+          )}
+          <button onClick={closeModal}>Close</button>
+        </Modal>
         <hr
           className="total-progress"
           style={{
