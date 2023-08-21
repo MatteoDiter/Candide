@@ -79,7 +79,7 @@ const Lvl1: React.FC = () => {
     if (isGameStarted && timer === 0) {
       // set a delay before navigate or will cause re-rendering issue // cant render at the same time
       setTimeout(() => {
-        alert("You Lost");
+        alert("Chapter Rejected");
         setRemainingClicks(clicks);
         resetTimer(); // reset timer
         setProgressWidth(0); // reset progress
@@ -94,7 +94,7 @@ const Lvl1: React.FC = () => {
     if (isGameStarted && remainingClicks === 0) {
       // set a delay before navigate or will cause re-rendering issue // cant render at the same time
       setTimeout(() => {
-        alert("You Win");
+        alert("Chapter Approved");
         resetTimer();
         setIsGameStarted(false); // Reset the game state
         navigate("/lvl2");
