@@ -98,7 +98,7 @@ const Lvl3: React.FC = () => {
         alert("Chapter Approved");
         resetTimer();
         setIsGameStarted(false); // Reset the game state
-        //navigate("/lvl3");
+        navigate("/endgame");
       }, 10);
     }
   }, [isGameStarted, remainingClicks, navigate]);
