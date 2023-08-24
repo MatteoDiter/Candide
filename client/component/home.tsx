@@ -13,14 +13,13 @@ const Home: React.FC = () => {
   return (
     <div>
       <div className="container">
-        <h3 className="title">Candide 2.2/16</h3>
+        {/* <h3 className="title">Candide 2.2/16</h3> */}
         <div className="paragraph1">
           <h4>Dear Mr. Arouet, </h4>
           <p>
             I reviewed your draft, and found your novel to hold great promise.{" "}
             <br />
-            However, please consider condensing it into three concise chapters,{" "}
-            <br />
+            However, please consider condensing it into three concise chapters,
             allowing for a read time of approximately 22 seconds.
             <br />
             <br />

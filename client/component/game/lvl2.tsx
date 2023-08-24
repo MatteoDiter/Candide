@@ -6,7 +6,7 @@ import "../../styles.scss";
 
 const Lvl2: React.FC = () => {
   // set time and clicks
-  const time = 7;
+  const time = 50;
   const clicks = 50;
 
   // set states
@@ -120,7 +120,7 @@ const Lvl2: React.FC = () => {
             width: `calc(var(--screen-width) * ${progressWidth / 100})`,
           }}
         />
-        <h3 className="title">Second Act: Death</h3>
+        <h3 className="title">Chapter II: Death</h3>
         <hr
           className="total-engagement"
           style={{

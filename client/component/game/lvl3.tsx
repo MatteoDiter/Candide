@@ -6,7 +6,7 @@ import "../../styles.scss";
 
 const Lvl3: React.FC = () => {
   // set time and clicks
-  const time = 10;
+  const time = 50;
   const clicks = 80;
 
   // set states
@@ -120,7 +120,7 @@ const Lvl3: React.FC = () => {
             width: `calc(var(--screen-width) * ${progressWidth / 100})`,
           }}
         />
-        <h3 className="title">Final Act: Wheel of Fortune</h3>
+        <h3 className="title">Final Chapter: The Wheel of Fortune</h3>
         <hr
           className="total-engagement"
           style={{

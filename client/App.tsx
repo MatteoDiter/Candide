@@ -8,6 +8,7 @@ import Start from "./component/start";
 import Lvl1 from "./component/game/lvl1";
 import Lvl2 from "./component/game/lvl2";
 import Lvl3 from "./component/game/lvl3";
+import Lvl4 from "./component/game/lvl4";
 
 const App: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const App: React.FC = () => {
           <Route path="/lvl1" element={<Lvl1 />} />
           <Route path="/lvl2" element={<Lvl2 />} />
           <Route path="/lvl3" element={<Lvl3 />} />
+          <Route path="/lvl4" element={<Lvl4 />} />
         </Routes>
       </div>
     </BrowserRouter>
