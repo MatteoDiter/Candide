@@ -7,7 +7,7 @@ const Lvl4: React.FC = () => {
   const navigate = useNavigate(); // setup navigation to next level
 
   const handleClick = () => {
-    navigate("/start");
+    navigate("/");
   };
 
   return (
@@ -19,7 +19,7 @@ const Lvl4: React.FC = () => {
             width: `calc(var(--screen-width) - 2px)`,
           }}
         />
-        <h3 className="title">Candide 2.2/16</h3>
+        {/* <h3 className="title">Candide 2.2/16</h3> */}
         <hr
           className="total-engagement"
           style={{
@@ -28,8 +28,8 @@ const Lvl4: React.FC = () => {
         />
         <p className="paragraph1">{longArray1}</p>
         <p className="paragraph2">{longArray2}</p>
-        <p className="paragraph2">{longArray3}</p>
-        <a href="#" className="btn2" onClick={handleClick}>
+        <p className="paragraph3">{longArray3}</p>
+        <a href="#" className="btn" onClick={handleClick}>
           Restart
         </a>
       </div>

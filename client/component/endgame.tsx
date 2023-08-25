@@ -7,7 +7,7 @@ const Endgame: React.FC = () => {
 
   // handle game start
   const handleClick = () => {
-    navigate("/lvl1");
+    navigate("/lvl4");
   };
 
   return (
@@ -15,10 +15,10 @@ const Endgame: React.FC = () => {
       <div className="container">
         <h3 className="title">Candide 2.2/16</h3>
         <div className="paragraph1">
-          <h4>Dear Mr. Arouet, </h4>
+          <h4>Congratulations Mr. Arouet, </h4>
           <p>
-            Thank you for sending your revised final draft. <br />
-            It was a delightful read and I look forward to publish it, <br />
+            Your final draft was a delightful read and I look forward to our
+            publishing event. <br />
             I'm positive it will be a success.
             <br />
             <br />
