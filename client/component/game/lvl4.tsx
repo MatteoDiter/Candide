@@ -7,12 +7,17 @@ const Lvl4: React.FC = () => {
   const navigate = useNavigate(); // setup navigation to next level
 
   const handleClick = () => {
-    navigate("/start");
+    navigate("/");
   };
 
   return (
     <div>
       <div className="container">
+        {/* <img
+          className="image"
+          src={require("../../component/assets/end.png").default}
+          alt="End"
+        /> */}
         <hr
           className="total-progress"
           style={{

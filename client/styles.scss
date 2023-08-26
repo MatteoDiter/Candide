@@ -29,10 +29,13 @@ body {
 }
 
 .image {
-  grid-row-start: 2;
-  grid-row-end: 6;
-  grid-column-start: 2;
-  grid-column-end: 4;
+  opacity: 5%;
+  grid-row-start: 1;
+  grid-row-end: 8;
+  grid-column-start: 1;
+  grid-column-end: 6;
+  width: 100%;
+  height: 100%;
   text-align: center;
   justify-self: center;
   align-self: center;
@@ -133,6 +136,16 @@ body {
   grid-column-end: 5;
   justify-self: stretch;
   align-self: stretch;
+}
+
+.letter {
+  grid-row-start: 5;
+  grid-row-end: 5;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
 }
 
 @keyframes stampGood {
