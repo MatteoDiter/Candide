@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { wordArray1 } from "./storyline";
+import ChapterApprovedModal from "../modals/approved";
+import ChapterRejectedModal from "../modals/rejected";
 import "../../styles.scss";
 
 const Lvl1: React.FC = () => {
   // set time and clicks
-  const time = 50;
+  const time = 10;
   const clicks = 30;
 
   // set states
@@ -25,7 +27,7 @@ const Lvl1: React.FC = () => {
 
   // handle click logic
   const handleClick = () => {
-    if (isGameStarted) {
+    if (isGameStarted && remainingClicks !== 0 && timer !== 0) {
       setRemainingClicks((prevValue) => prevValue - 1);
 
       // Calculate the progress bar width based on the remaining clicks
@@ -58,7 +60,7 @@ const Lvl1: React.FC = () => {
 
   // timer logic
   useEffect(() => {
-    if (isGameStarted) {
+    if (isGameStarted && remainingClicks !== 0) {
       const timeInterval = setInterval(() => {
         setTimer((prevTimer) => prevTimer - 1);
       }, 1000);
@@ -69,36 +71,39 @@ const Lvl1: React.FC = () => {
 
   // update engagement bar width whenever the timer changes
   useEffect(() => {
-    const engagement = 100 - (timer / time) * 100;
-    const newEngagementWidth = engagement;
-    setEngagementWidth(newEngagementWidth);
-  }, [timer]);
+    if (isGameStarted && remainingClicks !== 0) {
+      const engagement = 100 - (timer / time) * 100;
+      const newEngagementWidth = engagement;
+      setEngagementWidth(newEngagementWidth);
+    }
+  }, [timer, isGameStarted, remainingClicks]);
 
   // game over logic by time
   useEffect(() => {
-    if (isGameStarted && timer === 0) {
+    if (isGameStarted && timer === 0 && remainingClicks !== 0) {
       // set a delay before navigate or will cause re-rendering issue // cant render at the same time
+      setIsGameStarted(false); // Reset the game state
       setTimeout(() => {
-        alert("Chapter Rejected");
+        // alert("Chapter Rejected");
         setRemainingClicks(clicks);
         resetTimer(); // reset timer
         setProgressWidth(0); // reset progress
-        setIsGameStarted(false); // Reset the game state
+        setEngagementWidth(0); // reset engagement
         setDisplayedSentence(""); // Reset the displayed sentence
-      }, 10);
+      }, 3000);
     }
-  }, [isGameStarted, timer, clicks]);
+  }, [isGameStarted, timer, clicks, remainingClicks]);
 
   // game win logic by clicks
   useEffect(() => {
     if (isGameStarted && remainingClicks === 0) {
       // set a delay before navigate or will cause re-rendering issue // cant render at the same time
+      setIsGameStarted(false); // Reset the game state
       setTimeout(() => {
-        alert("Chapter Approved");
+        // alert("Chapter Approved");
         resetTimer();
-        setIsGameStarted(false); // Reset the game state
         navigate("/lvl2");
-      }, 10);
+      }, 3000);
     }
   }, [isGameStarted, remainingClicks, navigate]);
 
@@ -132,14 +137,33 @@ const Lvl1: React.FC = () => {
             width: `calc(var(--screen-width) * ${engagementWidth / 100})`,
           }}
         />
-        {isGameStarted && remainingClicks !== clicks && (
+        {remainingClicks !== clicks && (
           <p className="paragraph1">{displayedSentence}</p>
         )}
+        {/* Modals*/}
+        <ChapterApprovedModal
+          showModal={remainingClicks === 0}
+          // onClose={() => {
+          //   resetTimer();
+          //   setIsGameStarted(false);
+          //   navigate("/lvl2");
+          // }}
+        />
+        <ChapterRejectedModal
+          showModal={timer === 0}
+          // onClose={() => {
+          //   setRemainingClicks(clicks);
+          //   resetTimer();
+          //   setProgressWidth(0);
+          //   setIsGameStarted(false);
+          //   setDisplayedSentence("");
+          // }}
+        />
         {/* <p>Time remaining: {timer} seconds</p> */}
         <a href="#" className="btn2" onClick={handleClick}>
           keep typing
         </a>
-        {!isGameStarted && (
+        {!isGameStarted && timer !== 0 && (
           <a href="#" className="btn" onClick={handleStartClick}>
             click to type
           </a>

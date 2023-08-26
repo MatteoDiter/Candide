@@ -1,11 +1,14 @@
 // fonts
 //@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap"); // caveat
 @import url("https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap"); // 'Martian Mono', monospace;
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Martian+Mono&display=swap"); // frederika great
 
 // colors
 $main-color: rgb(30, 30, 30);
 $main2: #424242;
 $secondary: rgb(235, 235, 235);
+$good: #75a77b;
+$bad: #fc8c8c;
 
 body {
   background-color: $main-color;
@@ -26,10 +29,13 @@ body {
 }
 
 .image {
-  grid-row-start: 2;
-  grid-row-end: 6;
-  grid-column-start: 2;
-  grid-column-end: 4;
+  opacity: 5%;
+  grid-row-start: 1;
+  grid-row-end: 8;
+  grid-column-start: 1;
+  grid-column-end: 6;
+  width: 100%;
+  height: 100%;
   text-align: center;
   justify-self: center;
   align-self: center;
@@ -57,7 +63,7 @@ body {
   height: 5px;
   width: var(--screen-width);
   border-radius: 3px;
-  background-color: #75a77b;
+  background-color: $good;
   overflow: hidden;
   justify-self: start;
   align-self: center;
@@ -85,7 +91,7 @@ body {
   height: 5px;
   width: var(--screen-width);
   border-radius: 3px;
-  background-color: #fc8c8c;
+  background-color: $bad;
   overflow: hidden;
   justify-self: end;
   align-self: center;
@@ -130,6 +136,66 @@ body {
   grid-column-end: 5;
   justify-self: stretch;
   align-self: stretch;
+}
+
+.letter {
+  grid-row-start: 5;
+  grid-row-end: 5;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+}
+
+@keyframes stampGood {
+  0% {
+    opacity: 0;
+    transform: rotate(-15deg) scale(10);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-15deg) scale(1);
+  }
+}
+
+@keyframes stampBad {
+  0% {
+    opacity: 0;
+    transform: rotate(15deg) scale(10);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(15deg) scale(1);
+  }
+}
+
+.modal-approved {
+  font-size: 1.7vw;
+  font-family: "Fredericka the Great";
+  color: $good;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+  animation: stampGood 0.5s ease-in forwards;
+}
+
+.modal-rejected {
+  font-size: 1.7vw;
+  font-family: "Fredericka the Great";
+  color: $bad;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  grid-column-start: 3;
+  grid-column-end: 3;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+  animation: stampBad 0.5s ease-in forwards;
 }
 
 // Buttons Version 1

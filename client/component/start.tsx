@@ -7,19 +7,23 @@ const Start: React.FC = () => {
 
   // handle game start
   const handleClick = () => {
-    navigate("/");
+    navigate("/home");
   };
 
   return (
     <div>
       <div className="container">
-        <div className="paragraph1">
+        <div className="letter">
           <h4>
             Ferney, France
             <br /> March 6th x759
           </h4>
         </div>
-        <img className="image" src="../assets/start.png" />
+        <img
+          className="image"
+          src={require("../assets/start.png").default}
+          alt="Start"
+        />
         <a href="#" className="btn" onClick={handleClick}>
           Inbox (1)
         </a>
