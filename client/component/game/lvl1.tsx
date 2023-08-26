@@ -96,7 +96,12 @@ const Lvl1: React.FC = () => {
     if (isGameStarted && timer === 0) {
       // set a delay before navigate or will cause re-rendering issue // cant render at the same time
       setTimeout(() => {
-        openModal();
+        alert("Chapter Rejected");
+        setRemainingClicks(clicks);
+        resetTimer(); // reset timer
+        setProgressWidth(0); // reset progress
+        setIsGameStarted(false); // Reset the game state
+        setDisplayedSentence(""); // Reset the displayed sentence
       }, 10);
     }
   }, [isGameStarted, timer, clicks]);
@@ -106,7 +111,7 @@ const Lvl1: React.FC = () => {
     if (isGameStarted && remainingClicks === 0) {
       // set a delay before navigate or will cause re-rendering issue // cant render at the same time
       setTimeout(() => {
-        openModal();
+        alert("Chapter Approved");
         resetTimer();
         setIsGameStarted(false); // Reset the game state
         navigate("/lvl2");
