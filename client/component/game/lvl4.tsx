@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { longArray1, longArray2, longArray3 } from "./longform";
 import "../../styles.scss";
