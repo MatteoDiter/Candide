@@ -76,7 +76,7 @@ const Lvl1: React.FC = () => {
       const newEngagementWidth = engagement;
       setEngagementWidth(newEngagementWidth);
     }
-  }, [timer]);
+  }, [timer, isGameStarted, remainingClicks]);
 
   // game over logic by time
   useEffect(() => {
@@ -85,12 +85,12 @@ const Lvl1: React.FC = () => {
       setIsGameStarted(false); // Reset the game state
       setTimeout(() => {
         // alert("Chapter Rejected");
+        setRemainingClicks(clicks);
+        resetTimer(); // reset timer
         setProgressWidth(0); // reset progress
         setEngagementWidth(0); // reset engagement
-        resetTimer(); // reset timer
-        setRemainingClicks(clicks);
         setDisplayedSentence(""); // Reset the displayed sentence
-      }, 2000);
+      }, 3000);
     }
   }, [isGameStarted, timer, clicks, remainingClicks]);
 
@@ -103,7 +103,7 @@ const Lvl1: React.FC = () => {
         // alert("Chapter Approved");
         resetTimer();
         navigate("/lvl2");
-      }, 2000);
+      }, 3000);
     }
   }, [isGameStarted, remainingClicks, navigate]);
 
@@ -152,9 +152,11 @@ const Lvl1: React.FC = () => {
         <ChapterRejectedModal
           showModal={timer === 0}
           // onClose={() => {
+          //   setRemainingClicks(clicks);
           //   resetTimer();
+          //   setProgressWidth(0);
           //   setIsGameStarted(false);
-          //   navigate("/lvl2");
+          //   setDisplayedSentence("");
           // }}
         />
         {/* <p>Time remaining: {timer} seconds</p> */}

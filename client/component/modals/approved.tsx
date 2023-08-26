@@ -21,7 +21,9 @@ const ChapterApprovedModal: React.FC<ChapterApprovedModalProps> = ({
           <br />
           APPROVED
         </h2>
-        {/* <button onClick={onClose}>Next Chapter</button> */}
+        {/* <a href="#" className="btn2" onClick={onClose}>
+          go to next chapter
+        </a> */}
       </div>
     </div>
   );
