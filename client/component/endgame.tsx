@@ -13,13 +13,13 @@ const Endgame: React.FC = () => {
   return (
     <div>
       <div className="container">
-        <h3 className="title">Candide 2.2/16</h3>
+        {/* <h3 className="title">Candide 2.2/16</h3> */}
         <div className="paragraph1">
           <h4>Congratulations Mr. Arouet, </h4>
           <p>
             Your final draft was a delightful read and I look forward to our
             publishing event. <br />
-            I'm positive it will be a success.
+            I'm optimistic, it will be a success.
             <br />
             <br />
             Best, <br />

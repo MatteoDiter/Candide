@@ -13,7 +13,13 @@ const Start: React.FC = () => {
   return (
     <div>
       <div className="container">
-        <img className="image" src="../assets/start" />
+        <div className="paragraph1">
+          <h4>
+            Ferney, France
+            <br /> March 6th x759
+          </h4>
+        </div>
+        <img className="image" src="../assets/start.png" />
         <a href="#" className="btn" onClick={handleClick}>
           Inbox (1)
         </a>

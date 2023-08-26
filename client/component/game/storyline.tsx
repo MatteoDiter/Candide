@@ -164,6 +164,6 @@ export const wordArray3: string[] = [
   "begin",
   "to work",
   "on",
-  "their",
-  "farm.",
+  "their farm.",
+  "",
 ];

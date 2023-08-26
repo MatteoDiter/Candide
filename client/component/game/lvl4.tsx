@@ -19,7 +19,7 @@ const Lvl4: React.FC = () => {
             width: `calc(var(--screen-width) - 2px)`,
           }}
         />
-        {/* <h3 className="title">Candide 2.2/16</h3> */}
+        <h3 className="title">Candide 2.2/16</h3>
         <hr
           className="total-engagement"
           style={{
