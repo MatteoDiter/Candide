@@ -7,7 +7,7 @@ const Lvl4: React.FC = () => {
   const navigate = useNavigate(); // setup navigation to next level
 
   const handleClick = () => {
-    navigate("/");
+    navigate("/start");
   };
 
   return (
