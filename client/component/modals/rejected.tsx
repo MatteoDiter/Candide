@@ -17,7 +17,7 @@ const ChapterRejectedModal: React.FC<ChapterRejectedModalProps> = ({
     <div className="modal-rejected">
       <div className="modal-content">
         <h2>
-          ChHAPTER
+          CHAPTER
           <br />
           REJECTED
         </h2>

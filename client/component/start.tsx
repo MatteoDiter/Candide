@@ -25,7 +25,7 @@ const Start: React.FC = () => {
           alt="Start"
         />
         <a href="#" className="btn" onClick={handleClick}>
-          Inbox (1)
+          inbox (1)
         </a>
       </div>
     </div>

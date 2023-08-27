@@ -13,11 +13,11 @@ const Lvl4: React.FC = () => {
   return (
     <div>
       <div className="container">
-        {/* <img
+        <img
           className="image"
-          src={require("../../component/assets/end.png").default}
+          src={require("../../assets/end.png").default}
           alt="End"
-        /> */}
+        />
         <hr
           className="total-progress"
           style={{

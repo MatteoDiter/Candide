@@ -28,7 +28,7 @@ const Home: React.FC = () => {
           </p>
         </div>
         <a href="#" className="btn" onClick={handleClick}>
-          Start Final Draft
+          start final draft
         </a>
       </div>
     </div>

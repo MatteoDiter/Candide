@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { wordArray1 } from "./storyline";
 import ChapterApprovedModal from "../modals/approved";
 import ChapterRejectedModal from "../modals/rejected";
+import NextModal from "../modals/next";
 import "../../styles.scss";
 
 const Lvl1: React.FC = () => {
@@ -90,7 +91,7 @@ const Lvl1: React.FC = () => {
         setProgressWidth(0); // reset progress
         setEngagementWidth(0); // reset engagement
         setDisplayedSentence(""); // Reset the displayed sentence
-      }, 3000);
+      }, 10000);
     }
   }, [isGameStarted, timer, clicks, remainingClicks]);
 
@@ -103,7 +104,7 @@ const Lvl1: React.FC = () => {
         // alert("Chapter Approved");
         resetTimer();
         navigate("/lvl2");
-      }, 3000);
+      }, 10000);
     }
   }, [isGameStarted, remainingClicks, navigate]);
 
@@ -159,13 +160,21 @@ const Lvl1: React.FC = () => {
           //   setDisplayedSentence("");
           // }}
         />
+        <NextModal
+          showModal={remainingClicks === 0}
+          onClose={() => {
+            resetTimer();
+            setIsGameStarted(false);
+            navigate("/lvl2");
+          }}
+        />
         {/* <p>Time remaining: {timer} seconds</p> */}
         <a href="#" className="btn2" onClick={handleClick}>
-          keep typing
+          _keep_going_
         </a>
         {!isGameStarted && timer !== 0 && (
           <a href="#" className="btn" onClick={handleStartClick}>
-            click to type
+            __type_here__
           </a>
         )}
       </div>

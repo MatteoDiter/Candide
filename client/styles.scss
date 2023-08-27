@@ -5,7 +5,7 @@
 
 // colors
 $main-color: rgb(30, 30, 30);
-$main2: #424242;
+$main2: #2e2e2e;
 $secondary: rgb(235, 235, 235);
 $good: #75a77b;
 $bad: #fc8c8c;
@@ -198,37 +198,39 @@ body {
   animation: stampBad 0.5s ease-in forwards;
 }
 
-// Buttons Version 1
-// .button {
-//   grid-row-start: 6;
-//   grid-row-end: 6;
-//   grid-column-start: 3;
-//   grid-column-end: 3;
-//   justify-self: center;
-//   align-self: center;
-//   border-radius: 3px;
-//   font-size: 1.3vw;
-//   font-family: "Martial Mono", monospace;
-//   background: $main2;
-//   color: $main-color;
-//   border: none;
-//   transition: background-color 0.6s ease-in-out;
-//   overflow: hidden;
-//   &:after {
-//     content: "";
-//     top: var(--mouse-y);
-//     left: var(--mouse-x);
-//     transform-style: flat;
-//     transform: translate3d(-50%, -50%, 0);
-//     background: rgba(rgb(24, 24, 24), 0.1);
-//     border-radius: 100%;
-//     transition: width 0.3s ease, height 0.3s ease;
-//   }
-//   &:focus,
-//   &:hover {
-//     background: $secondary;
-//   }
-// }
+@keyframes retrynext {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.next-modal {
+  grid-row-start: 2;
+  grid-row-end: 2;
+  grid-column-start: 4;
+  grid-column-end: 4;
+  text-align: left;
+  justify-self: left;
+  align-self: left;
+  animation: retrynext 1s;
+}
+
+.retry-modal {
+  grid-row-start: 2;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  text-align: right;
+  justify-self: right;
+  align-self: right;
+  animation: retrynext 1s;
+}
 
 // Buttons
 $angle: 8px;
@@ -250,7 +252,7 @@ $angle-o: 4px;
   color: $main2;
   font-family: "Martial Mono", monospace;
   border-radius: 3px;
-  font-size: 1.3vw;
+  font-size: 1vw;
 
   box-shadow: -6px 6px 0 $main2;
   text-decoration: none;
@@ -375,7 +377,7 @@ a:active.btn {
   color: $main2;
   font-family: "Martial Mono", monospace;
   border-radius: 3px;
-  font-size: 1.3vw;
+  font-size: 1vw;
 
   text-decoration: none;
 
