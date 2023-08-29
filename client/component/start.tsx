@@ -19,11 +19,11 @@ const Start: React.FC = () => {
             <br /> March 6th x759
           </h4>
         </div>
-        <img
+        {/* <img
           className="image"
           src={require("../assets/start.png").default}
           alt="Start"
-        />
+        /> */}
         <a href="#" className="btn" onClick={handleClick}>
           inbox (1)
         </a>
