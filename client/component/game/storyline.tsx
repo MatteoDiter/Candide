@@ -26,8 +26,8 @@ export const wordArray1: string[] = [
   "is",
   "kicked",
   "out",
-  "of the",
-  "castle.",
+  "of",
+  "the castle.",
   "",
   "",
 ];
@@ -79,10 +79,11 @@ export const wordArray2: string[] = [
   "they meet",
   "the",
   "governor",
-  "who",
-  "takes",
+  "who takes",
   "an interest",
   "in Cunégonde.",
+  "",
+  "",
 ];
 
 export const wordArray3: string[] = [
@@ -165,5 +166,6 @@ export const wordArray3: string[] = [
   "to work",
   "on",
   "their farm.",
+  "",
   "",
 ];
