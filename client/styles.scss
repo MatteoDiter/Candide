@@ -139,8 +139,8 @@ body {
 }
 
 .letter {
-  grid-row-start: 5;
-  grid-row-end: 5;
+  grid-row-start: 4;
+  grid-row-end: 4;
   grid-column-start: 3;
   grid-column-end: 3;
   text-align: center;
@@ -218,7 +218,7 @@ body {
   text-align: left;
   justify-self: left;
   align-self: left;
-  animation: retrynext 1s;
+  animation: retrynext 1.5s;
 }
 
 .retry-modal {
@@ -229,7 +229,7 @@ body {
   text-align: right;
   justify-self: right;
   align-self: right;
-  animation: retrynext 1s;
+  animation: retrynext 1.5s;
 }
 
 // Buttons
