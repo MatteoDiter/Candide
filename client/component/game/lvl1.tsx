@@ -85,14 +85,14 @@ const Lvl1: React.FC = () => {
     if (isGameStarted && timer === 0 && remainingClicks !== 0) {
       // set a delay before navigate or will cause re-rendering issue // cant render at the same time
       setIsGameStarted(false); // Reset the game state
-      setTimeout(() => {
-        // alert("Chapter Rejected");
-        setRemainingClicks(clicks);
-        resetTimer(); // reset timer
-        setProgressWidth(0); // reset progress
-        setEngagementWidth(0); // reset engagement
-        setDisplayedSentence(""); // Reset the displayed sentence
-      }, 10000);
+      // setTimeout(() => {
+      //   // alert("Chapter Rejected");
+      //   setRemainingClicks(clicks);
+      //   resetTimer(); // reset timer
+      //   setProgressWidth(0); // reset progress
+      //   setEngagementWidth(0); // reset engagement
+      //   setDisplayedSentence(""); // Reset the displayed sentence
+      // }, 10000);
     }
   }, [isGameStarted, timer, clicks, remainingClicks]);
 
@@ -101,11 +101,11 @@ const Lvl1: React.FC = () => {
     if (isGameStarted && remainingClicks === 0) {
       // set a delay before navigate or will cause re-rendering issue // cant render at the same time
       setIsGameStarted(false); // Reset the game state
-      setTimeout(() => {
-        // alert("Chapter Approved");
-        resetTimer();
-        navigate("/lvl2");
-      }, 10000);
+      // setTimeout(() => {
+      //   // alert("Chapter Approved");
+      //   resetTimer();
+      //   navigate("/lvl2");
+      // }, 10000);
     }
   }, [isGameStarted, remainingClicks, navigate]);
 
