@@ -20,6 +20,7 @@ const Lvl1: React.FC = () => {
   const [displayedSentence, setDisplayedSentence] = useState(""); // displayed sentence
   const [progressWidth, setProgressWidth] = useState(0); // progress bar
   const [engagementWidth, setEngagementWidth] = useState(0); // engagement bar
+  const [gameOn, setGameOn] = useState(true);
   const navigate = useNavigate(); // setup navigation to next level
 
   // handle game start
@@ -85,6 +86,7 @@ const Lvl1: React.FC = () => {
     if (isGameStarted && timer === 0 && remainingClicks !== 0) {
       // set a delay before navigate or will cause re-rendering issue // cant render at the same time
       setIsGameStarted(false); // Reset the game state
+      setGameOn(false);
       // setTimeout(() => {
       //   // alert("Chapter Rejected");
       //   setRemainingClicks(clicks);
@@ -94,20 +96,29 @@ const Lvl1: React.FC = () => {
       //   setDisplayedSentence(""); // Reset the displayed sentence
       // }, 10000);
     }
-  }, [isGameStarted, timer, clicks, remainingClicks]);
+  }, [isGameStarted, timer, clicks, gameOn, setGameOn, remainingClicks]);
 
   // game win logic by clicks
   useEffect(() => {
-    if (isGameStarted && remainingClicks === 0) {
+    if (isGameStarted && timer !== 0 && remainingClicks === 0) {
       // set a delay before navigate or will cause re-rendering issue // cant render at the same time
       setIsGameStarted(false); // Reset the game state
+      setGameOn(false);
       // setTimeout(() => {
       //   // alert("Chapter Approved");
       //   resetTimer();
       //   navigate("/lvl2");
       // }, 10000);
     }
-  }, [isGameStarted, remainingClicks, navigate]);
+  }, [
+    isGameStarted,
+    timer,
+    clicks,
+    remainingClicks,
+    gameOn,
+    setGameOn,
+    navigate,
+  ]);
 
   return (
     <div>
@@ -165,6 +176,7 @@ const Lvl1: React.FC = () => {
           showModal={remainingClicks === 0}
           onClose={() => {
             setIsGameStarted(false);
+            setGameOn(true);
             resetTimer();
             navigate("/lvl2");
           }}
@@ -173,6 +185,7 @@ const Lvl1: React.FC = () => {
           showModal={timer === 0}
           onClose={() => {
             setIsGameStarted(false);
+            setGameOn(true);
             setRemainingClicks(clicks);
             resetTimer(); // reset timer
             setProgressWidth(0); // reset progress
@@ -184,9 +197,9 @@ const Lvl1: React.FC = () => {
         <a href="#" className="btn2" onClick={handleClick}>
           _keep_going_
         </a>
-        {!isGameStarted && timer !== 0 && (
+        {!isGameStarted && gameOn === true && (
           <a href="#" className="btn" onClick={handleStartClick}>
-            __type_here__
+            _start_typing_
           </a>
         )}
       </div>

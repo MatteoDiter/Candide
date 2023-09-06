@@ -21,6 +21,7 @@ const Lvl3: React.FC = () => {
   const [displayedSentence, setDisplayedSentence] = useState(""); // displayed sentence
   const [progressWidth, setProgressWidth] = useState(0); // progress bar
   const [engagementWidth, setEngagementWidth] = useState(0); // engagement bar
+  const [gameOn, setGameOn] = useState(true);
   const navigate = useNavigate(); // setup navigation to next level
 
   // handle game start
@@ -85,6 +86,7 @@ const Lvl3: React.FC = () => {
   useEffect(() => {
     if (isGameStarted && timer === 0 && remainingClicks !== 0) {
       setIsGameStarted(false); // Reset the game state
+      setGameOn(false);
     }
   }, [isGameStarted, timer, clicks, remainingClicks]);
 
@@ -92,6 +94,7 @@ const Lvl3: React.FC = () => {
   useEffect(() => {
     if (isGameStarted && remainingClicks === 0) {
       setIsGameStarted(false); // Reset the game state
+      setGameOn(false);
     }
   }, [isGameStarted, remainingClicks]);
 
@@ -135,6 +138,7 @@ const Lvl3: React.FC = () => {
           showModal={remainingClicks === 0}
           onClose={() => {
             setIsGameStarted(false);
+            setGameOn(true);
             resetTimer();
             navigate("/endgame");
           }}
@@ -143,6 +147,7 @@ const Lvl3: React.FC = () => {
           showModal={timer === 0}
           onClose={() => {
             setIsGameStarted(false);
+            setGameOn(true);
             setRemainingClicks(clicks);
             resetTimer(); // reset timer
             setProgressWidth(0); // reset progress
@@ -153,7 +158,7 @@ const Lvl3: React.FC = () => {
         <a href="#" className="btn2" onClick={handleClick}>
           _keep_going_
         </a>
-        {!isGameStarted && (
+        {!isGameStarted && gameOn === true && (
           <a href="#" className="btn" onClick={handleStartClick}>
             __type_here__
           </a>
