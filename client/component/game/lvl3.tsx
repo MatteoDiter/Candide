@@ -156,11 +156,11 @@ const Lvl3: React.FC = () => {
           }}
         />
         <a href="#" className="btn2" onClick={handleClick}>
-          _keep_going_
+          _type_
         </a>
         {!isGameStarted && gameOn === true && (
           <a href="#" className="btn" onClick={handleStartClick}>
-            __type_here__
+            _start_
           </a>
         )}
       </div>
