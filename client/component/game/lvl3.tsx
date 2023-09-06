@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { wordArray3 } from "./storyline";
 import { longArray1, longArray2 } from "./longform";
+import ChapterApprovedModal from "../modals/approved";
+import ChapterRejectedModal from "../modals/rejected";
+import NextModal from "../modals/next";
+import RetryModal from "../modals/retry";
 import "../../styles.scss";
 
 const Lvl3: React.FC = () => {
   // set time and clicks
-  const time = 50;
+  const time = 10;
   const clicks = 80;
 
   // set states
@@ -26,7 +30,7 @@ const Lvl3: React.FC = () => {
 
   // handle click logic
   const handleClick = () => {
-    if (isGameStarted) {
+    if (isGameStarted && remainingClicks !== 0 && timer !== 0) {
       setRemainingClicks((prevValue) => prevValue - 1);
 
       // Calculate the progress bar width based on the remaining clicks
@@ -59,7 +63,7 @@ const Lvl3: React.FC = () => {
 
   // timer logic
   useEffect(() => {
-    if (isGameStarted) {
+    if (isGameStarted && remainingClicks !== 0) {
       const timeInterval = setInterval(() => {
         setTimer((prevTimer) => prevTimer - 1);
       }, 1000);
@@ -70,43 +74,29 @@ const Lvl3: React.FC = () => {
 
   // update engagement bar width whenever the timer changes
   useEffect(() => {
-    const engagement = 100 - (timer / time) * 100;
-    const newEngagementWidth = engagement;
-    setEngagementWidth(newEngagementWidth);
-  }, [timer]);
+    if (isGameStarted && remainingClicks !== 0) {
+      const engagement = 100 - (timer / time) * 100;
+      const newEngagementWidth = engagement;
+      setEngagementWidth(newEngagementWidth);
+    }
+  }, [timer, isGameStarted, remainingClicks]);
 
   // game over logic by time
   useEffect(() => {
-    if (isGameStarted && timer === 0) {
-      // set a delay before navigate or will cause re-rendering issue // cant render at the same time
-      setTimeout(() => {
-        alert("Chapter Rejected");
-        setRemainingClicks(clicks);
-        resetTimer(); // reset timer
-        setProgressWidth(0); // reset progress
-        setIsGameStarted(false); // Reset the game state
-        setDisplayedSentence(""); // Reset the displayed sentence
-      }, 10);
+    if (isGameStarted && timer === 0 && remainingClicks !== 0) {
+      setIsGameStarted(false); // Reset the game state
     }
-  }, [isGameStarted, timer, clicks]);
+  }, [isGameStarted, timer, clicks, remainingClicks]);
 
   // game win logic by clicks
   useEffect(() => {
     if (isGameStarted && remainingClicks === 0) {
-      // set a delay before navigate or will cause re-rendering issue // cant render at the same time
-      setTimeout(() => {
-        alert("Chapter Approved");
-        resetTimer();
-        setIsGameStarted(false); // Reset the game state
-        navigate("/endgame");
-      }, 10);
+      setIsGameStarted(false); // Reset the game state
     }
-  }, [isGameStarted, remainingClicks, navigate]);
+  }, [isGameStarted, remainingClicks]);
 
   return (
     <div>
-      {/* <div className="center-line" /> */}
-      {/* <p>{clicks - value}</p> */}
       <div className="container">
         <hr
           className="total-progress"
@@ -135,16 +125,37 @@ const Lvl3: React.FC = () => {
         />
         <p className="paragraph1">{longArray1}</p>
         <p className="paragraph2">{longArray2}</p>
-        {isGameStarted && remainingClicks !== clicks && (
+        {remainingClicks !== clicks && (
           <p className="paragraph3">{displayedSentence}</p>
         )}
-        {/* <p>Time remaining: {timer} seconds</p> */}
+        {/* Modals*/}
+        <ChapterApprovedModal showModal={remainingClicks === 0} />
+        <ChapterRejectedModal showModal={timer === 0} />
+        <NextModal
+          showModal={remainingClicks === 0}
+          onClose={() => {
+            setIsGameStarted(false);
+            resetTimer();
+            navigate("/endgame");
+          }}
+        />
+        <RetryModal
+          showModal={timer === 0}
+          onClose={() => {
+            setIsGameStarted(false);
+            setRemainingClicks(clicks);
+            resetTimer(); // reset timer
+            setProgressWidth(0); // reset progress
+            setEngagementWidth(0); // reset engagement
+            setDisplayedSentence(""); // Reset the displayed sentence
+          }}
+        />
         <a href="#" className="btn2" onClick={handleClick}>
-          keep typing
+          _keep_going_
         </a>
         {!isGameStarted && (
           <a href="#" className="btn" onClick={handleStartClick}>
-            click to type
+            __type_here__
           </a>
         )}
       </div>

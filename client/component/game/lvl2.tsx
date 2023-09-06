@@ -10,7 +10,7 @@ import "../../styles.scss";
 
 const Lvl2: React.FC = () => {
   // set time and clicks
-  const time = 10;
+  const time = 7;
   const clicks = 50;
 
   // set states
@@ -93,7 +93,7 @@ const Lvl2: React.FC = () => {
     if (isGameStarted && remainingClicks === 0) {
       setIsGameStarted(false); // Reset the game state
     }
-  }, [isGameStarted, remainingClicks, navigate]);
+  }, [isGameStarted, remainingClicks]);
 
   return (
     <div>
