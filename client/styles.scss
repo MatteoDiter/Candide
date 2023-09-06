@@ -151,7 +151,7 @@ body {
 @keyframes stampGood {
   0% {
     opacity: 0;
-    transform: rotate(-15deg) scale(10);
+    transform: rotate(-15deg) scale(5);
   }
   100% {
     opacity: 1;
@@ -162,7 +162,7 @@ body {
 @keyframes stampBad {
   0% {
     opacity: 0;
-    transform: rotate(15deg) scale(10);
+    transform: rotate(15deg) scale(5);
   }
   100% {
     opacity: 1;
