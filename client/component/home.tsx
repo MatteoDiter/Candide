@@ -20,7 +20,7 @@ const Home: React.FC = () => {
             I reviewed your draft, and found your novel to hold great promise.{" "}
             <br />
             However, please consider condensing it into three concise chapters,
-            allowing for a read time of approximately 22 seconds.
+            allowing for a read time of 22 seconds.
             <br />
             <br />
             Thanks, <br />
