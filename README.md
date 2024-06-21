@@ -1,6 +1,6 @@
 # Candide 2.2/16
 
-Candide is a story-telling clicker game inspired by the adventures of Candide by Voltaire
+Candide is a one-of-a-kind story-telling clicker game.
 
 How to play?
 
